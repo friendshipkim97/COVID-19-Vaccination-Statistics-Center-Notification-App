@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MobileProgrammingProject</string>
+    <string name="signUp">간편회원가입</string>
 </resources>

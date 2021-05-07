@@ -22,90 +22,90 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_google" />
+
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/btn_google"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="88dp"
-        app:layout_constraintBottom_toTopOf="@+id/loginButton"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"></com.google.android.gms.common.SignInButton>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_searchPassword"></com.google.android.gms.common.SignInButton>
 
     <EditText
         android:id="@+id/tv_loginId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
-        android:ems="10"
+        android:layout_marginTop="100dp"
+        android:ems="14"
+        android:hint="Email"
         android:inputType="textPersonName"
-        android:text="아이디"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="178dp"
-        android:ems="10"
+        android:layout_marginTop="32dp"
+        android:ems="14"
+        android:hint="Password"
         android:inputType="textPersonName"
-        android:text="비밀번호"
-        app:layout_constraintBottom_toTopOf="@+id/btn_google"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_loginId"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_loginId" />
 
     <TextView
         android:id="@+id/tv_searchId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="32dp"
         android:text="아이디 찾기"
-        app:layout_constraintBottom_toTopOf="@+id/btn_google"
         app:layout_constraintEnd_toStartOf="@+id/tv_searchPassword"
         app:layout_constraintHorizontal_bias="0.34"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
-        app:layout_constraintVertical_bias="0.614" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
     <TextView
         android:id="@+id/tv_searchPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="68dp"
-        android:layout_marginRight="68dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginTop="32dp"
         android:text="비밀번호 찾기"
-        app:layout_constraintBottom_toTopOf="@+id/btn_google"
         app:layout_constraintEnd_toStartOf="@+id/tv_signUp"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
-        app:layout_constraintVertical_bias="0.642" />
+        app:layout_constraintStart_toEndOf="@+id/tv_searchId"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
     <TextView
         android:id="@+id/tv_signUp"
         android:layout_width="54dp"
         android:layout_height="15dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginTop="32dp"
         android:text="회원가입"
-        app:layout_constraintBottom_toTopOf="@+id/btn_google"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
-        app:layout_constraintVertical_bias="0.622" />
+        app:layout_constraintStart_toEndOf="@+id/tv_searchPassword"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="14"
+        android:text="로그인"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

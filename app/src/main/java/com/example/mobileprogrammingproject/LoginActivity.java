@@ -5,14 +5,18 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mobileprogrammingproject.databinding.ActivityLoginBinding;
@@ -67,7 +71,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         mBinding = ActivityLoginBinding.inflate(getLayoutInflater());
         View view = mBinding.getRoot();
         setContentView(view);
-
+        setGooglePlusButtonText(mBinding.btnGoogle, "구글 로그인");
 
         mBinding.tvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -219,4 +223,20 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             startActivity(intent);
         }
     }
+
+    protected void setGooglePlusButtonText(SignInButton signInButton, String buttonText) {
+        // Search all the views inside SignInButton for TextView
+        for (int i = 0; i < signInButton.getChildCount(); i++) {
+            View v = signInButton.getChildAt(i);
+            // if the view is instance of TextView then change the text SignInButton
+            if (v instanceof TextView) {
+                TextView tv = (TextView) v;
+                tv.setText(buttonText);
+                return;
+            }
+        }
+    }
+
+
+
 }

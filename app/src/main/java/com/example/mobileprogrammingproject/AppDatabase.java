@@ -1,6 +1,7 @@
 package com.example.mobileprogrammingproject;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.room.Database;
@@ -12,16 +13,18 @@ import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
 import com.example.mobileprogrammingproject.model.User;
 
-@Database(entities = {User.class}, version = 3)
+@Database(entities = {User.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
    public abstract UserDao userDao();
    private static AppDatabase mAppDatabase;
 
-//   public static AppDatabase getInstance(Context context) {
-//      if(mAppDatabase==null){
-//         mAppDatabase = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class,
-//                 "mobile-db").build();
-//      }
-//      return mAppDatabase;
-//   }
+   public static AppDatabase getInstance(Context context) {
+      if(mAppDatabase==null){
+         mAppDatabase = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "mobileDB")
+                 .createFromAsset("database/mobile-db.db")
+                 .allowMainThreadQueries()
+                 .build();
+      }
+      return mAppDatabase;
+   }
 }
