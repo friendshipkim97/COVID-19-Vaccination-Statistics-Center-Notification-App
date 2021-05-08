@@ -91,7 +91,7 @@
                 android:layout_marginTop="32dp"
                 android:backgroundTint="#000000"
                 android:ems="7"
-                android:hint="이메일 영문, 숫자 조합 6~12자"
+                android:hint="이메일 입력 10~25자"
                 android:inputType="textPersonName"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_signUpInfo" />
@@ -126,7 +126,7 @@
 
 
             <android.widget.DatePicker
-                android:id="@+id/dataPicker"
+                android:id="@+id/dp_dateOfBirth"
                 android:layout_width="wrap_content"
                 android:layout_height="80dp"
                 android:layout_marginTop="16dp"
@@ -148,7 +148,7 @@
                 android:layout_marginRight="16dp"
                 android:text="생년월일"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toStartOf="@+id/dataPicker"
+                app:layout_constraintEnd_toStartOf="@+id/dp_dateOfBirth"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/et_nameSignUp" />
 
@@ -161,11 +161,11 @@
                 android:layout_marginRight="16dp"
                 android:backgroundTint="#000000"
                 android:ems="12"
-                android:hint="휴대폰번호 -없이 입력"
+                android:hint="휴대폰번호 -포함해서 입력"
                 android:inputType="textPersonName"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dataPicker" />
+                app:layout_constraintTop_toBottomOf="@+id/dp_dateOfBirth" />
 
             <TextView
                 android:id="@+id/et_genderChoice"

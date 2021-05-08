@@ -19,14 +19,8 @@ public interface UserDao {
     @Query("SELECT email FROM User")
     List<String> findAllEmail();
 
-    @Query("SELECT emailType FROM User where id=(:uid)")
-    String findTypeById(int uid);
-
-    @Query("SELECT email FROM User where id=(:uid)")
-    String findEmailById(int uid);
-
-    @Query("SELECT id FROM User where email=(:inputEmail)")
-    int findIdByEmail(String inputEmail);
+    @Query("SELECT emailType FROM User where email=(:email)")
+    String findTypeByEmail(String email);
 
     @Insert
     void insert(User user);

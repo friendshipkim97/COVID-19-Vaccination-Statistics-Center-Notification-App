@@ -16,15 +16,19 @@ import android.widget.Toast;
 import com.example.mobileprogrammingproject.databinding.ActivityLoginBinding;
 import com.example.mobileprogrammingproject.databinding.ActivitySignUpBinding;
 import com.example.mobileprogrammingproject.model.User;
+import com.example.mobileprogrammingproject.presenter.SignUpContract;
+import com.example.mobileprogrammingproject.presenter.SignUpPresenter;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity implements SignUpContract.View {
 
     // Attributes
     private ActivitySignUpBinding mBinding;
     private AppDatabase mAppDatabase;
     private boolean emailDuplicate = false;
+    private SignUpContract.Presenter signUpPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,57 +36,44 @@ public class SignUpActivity extends AppCompatActivity {
         mBinding = ActivitySignUpBinding.inflate(getLayoutInflater());
         View view = mBinding.getRoot();
         setContentView(view);
-
-        initToolbar();
-
         mAppDatabase = AppDatabase.getInstance(getApplicationContext());
+        initToolbar();
+        signUpPresenter = new SignUpPresenter(this, mBinding, mAppDatabase);
 
+        init();
+
+    }
+
+    private void init(){
         mBinding.btnEmailDuplicateCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                emailDuplicateCheck();
+                boolean emailDuplicateResult = signUpPresenter.emailDuplicateCheck(true);
             }
         });
 
         mBinding.btnCompleteSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                signUpCheck();
-//                String email = mBinding.ptSignUpEmail.getText().toString();
-//                mAppDatabase.userDao().insert(new User(mBinding.ptSignUpEmail.getText().toString(), "kimjungwoo", "null"));
-//                mBinding.ptSignUpPassword.setText(mAppDatabase.userDao().findAll().toString());
-//                Toast.makeText(getApplicationContext(), "버튼누름", Toast.LENGTH_SHORT).show();
+                signUpPresenter.signUpCheck();
+            }
+        });
+
+        mBinding.cbFullAgreement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mBinding.cbPrivacyAgreement.setChecked(true);
+                mBinding.cbTermsOfServiceAgreement.setChecked(true);
             }
         });
     }
 
-    private boolean emailDuplicateCheck(){
-        emailDuplicate = false;
-        String inputEmail = mBinding.etEmailSignUp.getText().toString();
-        List<String> allEmail = mAppDatabase.userDao().findAllEmail();
-        for(String email : allEmail){
-            if(email.equals(inputEmail)){
-                if(mAppDatabase.userDao().findTypeById(mAppDatabase.userDao().findIdByEmail(email)).equals("app")){
-                    emailDuplicate = true;
-                    Toast.makeText(getApplicationContext(), "이메일이 중복입니다.", Toast.LENGTH_SHORT).show();
-                }
-            }
-        }
-        if(emailDuplicate == false){
-            Toast.makeText(getApplicationContext(), "사용가능한 이메일입니다.", Toast.LENGTH_SHORT).show();
-        }
-        return emailDuplicate;
+    @Override
+    public void showToast(String message) {
+            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
 
-    private void signUpCheck() {
-        if()
-        if(emailDuplicate==false){
-            Toast.makeText(getApplicationContext(), "이메일 중복체크를 해주세요.", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-
-    // ActionBar Settings
+    // ToolBar Settings
     private void initToolbar() {
         setSupportActionBar(mBinding.tbSignUp);
         ActionBar actionBar = getSupportActionBar();
