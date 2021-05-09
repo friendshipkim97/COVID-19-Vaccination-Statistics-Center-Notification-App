@@ -4,20 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
-
-
-<!--    <ImageView-->
-<!--        android:id="@+id/imageView"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:background="#fff"-->
-<!--        android:src="@drawable/ic_launcher_foreground"-->
-<!--        tools:layout_editor_absoluteX="16dp"-->
-<!--        tools:layout_editor_absoluteY="-16dp"></ImageView>-->
+    tools:context=".view.LoginActivity">
 
     <com.kakao.usermgmt.LoginButton
-
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,36 +30,36 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_searchPassword"></com.google.android.gms.common.SignInButton>
 
     <EditText
-        android:id="@+id/tv_loginId"
+        android:id="@+id/et_loginEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:ems="14"
-        android:hint="Email"
+        android:hint="@string/loginHintId"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/et_loginPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="14"
-        android:hint="Password"
+        android:hint="@string/loginHintPassword"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_loginId" />
+        app:layout_constraintTop_toBottomOf="@+id/et_loginEmail" />
 
     <TextView
-        android:id="@+id/tv_searchId"
+        android:id="@+id/tv_searchEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="아이디 찾기"
+        android:text="@string/loginTextSearchEmail"
         app:layout_constraintEnd_toStartOf="@+id/tv_searchPassword"
         app:layout_constraintHorizontal_bias="0.34"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,9 +70,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="비밀번호 찾기"
+        android:text="@string/loginTextSearchPw"
         app:layout_constraintEnd_toStartOf="@+id/tv_signUp"
-        app:layout_constraintStart_toEndOf="@+id/tv_searchId"
+        app:layout_constraintStart_toEndOf="@+id/tv_searchEmail"
         app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
     <TextView
@@ -91,7 +80,7 @@
         android:layout_width="54dp"
         android:layout_height="15dp"
         android:layout_marginTop="32dp"
-        android:text="회원가입"
+        android:text="@string/loginTextSignUp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_searchPassword"
         app:layout_constraintTop_toBottomOf="@+id/btn_login" />
@@ -102,10 +91,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="14"
-        android:text="로그인"
+        android:text="@string/loginTextLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@+id/et_loginPassword" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

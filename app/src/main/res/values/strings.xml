@@ -1,4 +1,36 @@
 <resources>
     <string name="app_name">MobileProgrammingProject</string>
-    <string name="signUp">간편회원가입</string>
+
+    <!--    activity_login.xml-->
+    <string name="loginHintId">Email</string>
+    <string name="loginHintPassword">Password</string>
+    <string name="loginTextSearchEmail">이메일 찾기</string>
+    <string name="loginTextSearchPw">비밀번호 찾기</string>
+    <string name="loginTextSignUp">회원가입</string>
+    <string name="loginTextLogin">로그인</string>
+
+    <!--    activity_search_email.xml-->
+    <string name="searchEmailTextToolbar">이메일 찾기</string>
+
+    <!--    activity_search_password.xml-->
+    <string name="searchPasswordTextToolbar">비밀번호 찾기</string>
+
+    <!--    activity_sign_up.xml-->
+    <string name="signUpText">간편회원가입</string>
+    <string name="signUpHintPw">비밀번호 영문, 숫자, 특수문자 조합 8~12자</string>
+    <string name="signUpHintPw2">비밀번호 다시 입력</string>
+    <string name="signUpHintName">이름</string>
+    <string name="signUpTextComplete">회원가입</string>
+    <string name="signUpHintEmail">이메일 입력 10~25자</string>
+    <string name="signUpTextDuplicateCheck">중복확인</string>
+    <string name="signUpTextInfo">회원가입 정보를 상세히 입력해주세요.</string>
+    <string name="signUpTextDateOfBirth">생년월일</string>
+    <string name="signUpHintPhoneNumber">휴대폰번호 -포함해서 입력</string>
+    <string name="signUpTextGender">성별</string>
+    <string name="signUpTextMale">남자</string>
+    <string name="signUpTextFemale">여자</string>
+    <string name="signUpTextFullAgreement">전체동의</string>
+    <string name="signUpTextTermsOfServiceAgreement">(필수) 이용약관동의</string>
+    <string name="signUpTextPrivacyAgreement">(필수) 개인정보수집 및 이용 동의</string>
 </resources>
+

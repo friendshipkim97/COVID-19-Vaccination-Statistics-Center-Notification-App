@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".SignUpActivity">
+    tools:context=".view.SignUpActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
                 android:layout_marginRight="16dp"
                 android:backgroundTint="#000000"
                 android:ems="12"
-                android:hint="비밀번호 다시 입력"
+                android:hint="@string/signUpHintPw2"
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -43,7 +43,7 @@
                 android:layout_marginRight="16dp"
                 android:backgroundTint="#000000"
                 android:ems="12"
-                android:hint="이름"
+                android:hint="@string/signUpHintName"
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -61,7 +61,7 @@
                 android:layout_marginRight="16dp"
                 android:backgroundTint="#000000"
                 android:ems="12"
-                android:hint="비밀번호 영문, 숫자, 특수문자 조합 8~12자"
+                android:hint="@string/signUpHintPw"
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -75,7 +75,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/et_border"
-                android:text="회원가입"
+                android:text="@string/signUpTextComplete"
                 android:textColor="#000000"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -91,7 +91,7 @@
                 android:layout_marginTop="32dp"
                 android:backgroundTint="#000000"
                 android:ems="7"
-                android:hint="이메일 입력 10~25자"
+                android:hint="@string/signUpHintEmail"
                 android:inputType="textPersonName"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_signUpInfo" />
@@ -105,7 +105,7 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginRight="8dp"
                 android:background="@drawable/et_border"
-                android:text="중복확인"
+                android:text="@string/signUpTextDuplicateCheck"
                 android:textColor="#000000"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/et_emailSignUp"
@@ -117,7 +117,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="80dp"
                 android:layout_marginBottom="32dp"
-                android:text="회원가입 정보를 상세히 입력해주세요."
+                android:text="@string/signUpTextInfo"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/et_emailSignUp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -146,7 +147,7 @@
                 android:layout_marginTop="44dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
-                android:text="생년월일"
+                android:text="@string/signUpTextDateOfBirth"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toStartOf="@+id/dp_dateOfBirth"
                 app:layout_constraintStart_toStartOf="parent"
@@ -161,7 +162,7 @@
                 android:layout_marginRight="16dp"
                 android:backgroundTint="#000000"
                 android:ems="12"
-                android:hint="휴대폰번호 -포함해서 입력"
+                android:hint="@string/signUpHintPhoneNumber"
                 android:inputType="textPersonName"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -176,14 +177,14 @@
                 android:backgroundTint="#000000"
                 android:ems="7"
                 android:inputType="textPersonName"
-                android:text="성별"
+                android:text="@string/signUpTextGender"
                 android:textSize="18sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/et_phoneNumber" />
 
 
             <RadioGroup
-                android:id="@+id/rg_genderChoice"
+                android:id="@+id/rg_group"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
@@ -194,18 +195,18 @@
                 app:layout_constraintTop_toBottomOf="@+id/et_phoneNumber">
 
                 <RadioButton
-                    android:id="@+id/btn_male"
+                    android:id="@+id/btn_Male"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
-                    android:text="남자" />
+                    android:text="@string/signUpTextMale" />
 
                 <RadioButton
-                    android:id="@+id/btn_female"
+                    android:id="@+id/btn_Female"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
-                    android:text="여자" />
+                    android:text="@string/signUpTextFemale" />
             </RadioGroup>
 
             <CheckBox
@@ -218,11 +219,11 @@
                 android:backgroundTint="#000000"
                 android:ems="14"
                 android:inputType="textPersonName"
-                android:text="전체동의"
+                android:text="@string/signUpTextFullAgreement"
                 android:textSize="18sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rg_genderChoice" />
+                app:layout_constraintTop_toBottomOf="@+id/rg_group" />
 
             <CheckBox
                 android:id="@+id/cb_termsOfServiceAgreement"
@@ -234,7 +235,7 @@
                 android:backgroundTint="#000000"
                 android:ems="14"
                 android:inputType="textPersonName"
-                android:text="(필수) 이용약관동의"
+                android:text="@string/signUpTextTermsOfServiceAgreement"
                 android:textSize="18sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -250,7 +251,7 @@
                 android:backgroundTint="#000000"
                 android:ems="14"
                 android:inputType="textPersonName"
-                android:text="(필수) 개인정보수집 및 이용 동의"
+                android:text="@string/signUpTextPrivacyAgreement"
                 android:textSize="18sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -279,7 +280,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="120sp"
-            android:text="간편회원가입"
+            android:text="@string/signUpText"
             android:textColor="#000000"
             android:textSize="24sp"
             tools:layout_editor_absoluteX="173dp"

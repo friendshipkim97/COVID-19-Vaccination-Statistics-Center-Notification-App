@@ -1,9 +1,6 @@
 package com.example.mobileprogrammingproject.presenter;
 
-import android.util.Log;
-import android.widget.Toast;
-
-import com.example.mobileprogrammingproject.AppDatabase;
+import com.example.mobileprogrammingproject.dao.AppDatabase;
 import com.example.mobileprogrammingproject.constants.Constants.ESignUp;
 import com.example.mobileprogrammingproject.databinding.ActivitySignUpBinding;
 import com.example.mobileprogrammingproject.model.User;
@@ -13,10 +10,12 @@ import java.util.regex.Pattern;
 
 public class SignUpPresenter implements SignUpContract.Presenter{
 
+    // Attributes
     private SignUpContract.View signUpView;
     private ActivitySignUpBinding mBinding;
     private AppDatabase mAppDatabase;
 
+    // Constructor
     public SignUpPresenter(SignUpContract.View signUpView, ActivitySignUpBinding mBinding, AppDatabase mAppDatabase){
         this.signUpView = signUpView;
         this.mBinding = mBinding;
@@ -65,11 +64,10 @@ public class SignUpPresenter implements SignUpContract.Presenter{
             return false;
         } else{
             User user = createUser();
-            Log.e("유저", user.toString());
             mAppDatabase.userDao().insert(user);
             signUpView.showToast(ESignUp.completeSignUpMessage.getText());
+            return true;
         }
-      return true;
     }
 
     private User createUser() {
@@ -77,8 +75,9 @@ public class SignUpPresenter implements SignUpContract.Presenter{
         String email = mBinding.etEmailSignUp.getText().toString();
         String name = mBinding.etNameSignUp.getText().toString();
         String profileImg = null;
-        String dateOfBirth = Integer.toString(mBinding.dpDateOfBirth.getYear())+"년"+Integer.toString(mBinding.dpDateOfBirth.getMonth()+1)+"월"
-                +Integer.toString(mBinding.dpDateOfBirth.getDayOfMonth())+"일";
+        String dateOfBirth = Integer.toString(mBinding.dpDateOfBirth.getYear())+ESignUp.dpYear.getText()
+                +Integer.toString(mBinding.dpDateOfBirth.getMonth()+1)+ESignUp.dpMonth.getText()
+                +Integer.toString(mBinding.dpDateOfBirth.getDayOfMonth())+ESignUp.dpDay.getText();
         String phoneNumber = mBinding.etPhoneNumber.getText().toString();
         String genderChoice = null;
         if(mBinding.btnMale.isChecked()){
@@ -86,7 +85,7 @@ public class SignUpPresenter implements SignUpContract.Presenter{
         } else if(mBinding.btnFemale.isChecked()){
             genderChoice = mBinding.btnFemale.getText().toString();
         }
-        String emailType = "app";
+        String emailType = ESignUp.emailAppType.getText();
         User user = new User(password, email, name, profileImg, dateOfBirth, phoneNumber, genderChoice, emailType);
         return user;
     }

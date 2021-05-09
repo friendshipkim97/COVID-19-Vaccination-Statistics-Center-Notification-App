@@ -18,7 +18,11 @@ public class Constants {
         phoneNumberErrorMessage("올바른 휴대폰 번호를 입력해주세요."),
         genderCheckMessage("성별을 체크해주세요."),
         agreeCheckMessage("약관에 동의해주세요."),
-        completeSignUpMessage("회원가입을 완료했습니다.");
+        completeSignUpMessage("회원가입을 완료했습니다."),
+        dpYear("년"),
+        dpMonth("월"),
+        dpDay("일"),
+        emailAppType("app");
 
         private String text;
         private ESignUp(String text){

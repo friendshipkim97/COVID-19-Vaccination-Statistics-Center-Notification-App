@@ -1,4 +1,4 @@
-package com.example.mobileprogrammingproject;
+package com.example.mobileprogrammingproject.dao;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -21,6 +21,9 @@ public interface UserDao {
 
     @Query("SELECT emailType FROM User where email=(:email)")
     String findTypeByEmail(String email);
+
+    @Query("SELECT email FROM User where name=(:name) and dateOfBirth=(:dateOfBirth)")
+    String findEmailByNameAndBirth(String name, String dateOfBirth);
 
     @Insert
     void insert(User user);

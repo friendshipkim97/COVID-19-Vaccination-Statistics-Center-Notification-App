@@ -1,43 +1,45 @@
-package com.example.mobileprogrammingproject;
+package com.example.mobileprogrammingproject.view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.mobileprogrammingproject.databinding.ActivityLoginBinding;
+import com.example.mobileprogrammingproject.dao.AppDatabase;
+import com.example.mobileprogrammingproject.R;
 import com.example.mobileprogrammingproject.databinding.ActivitySignUpBinding;
-import com.example.mobileprogrammingproject.model.User;
 import com.example.mobileprogrammingproject.presenter.SignUpContract;
 import com.example.mobileprogrammingproject.presenter.SignUpPresenter;
-
-import java.util.List;
-import java.util.regex.Pattern;
 
 public class SignUpActivity extends AppCompatActivity implements SignUpContract.View {
 
     // Attributes
     private ActivitySignUpBinding mBinding;
     private AppDatabase mAppDatabase;
-    private boolean emailDuplicate = false;
     private SignUpContract.Presenter signUpPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // set Binding
         mBinding = ActivitySignUpBinding.inflate(getLayoutInflater());
         View view = mBinding.getRoot();
         setContentView(view);
-        mAppDatabase = AppDatabase.getInstance(getApplicationContext());
+
+        // set Toolbar
         initToolbar();
+
+        // set Database
+        mAppDatabase = AppDatabase.getInstance(getApplicationContext());
+
+        // set Presenter
         signUpPresenter = new SignUpPresenter(this, mBinding, mAppDatabase);
 
         init();
@@ -85,14 +87,14 @@ public class SignUpActivity extends AppCompatActivity implements SignUpContract.
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.signupactionbar, menu);
+        menuInflater.inflate(R.menu.actionbar, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.btn_signUpExit:
+            case R.id.btn_Exit:
                 finish();
                 break;
         }

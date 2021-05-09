@@ -1,32 +1,21 @@
-package com.example.mobileprogrammingproject;
+package com.example.mobileprogrammingproject.view;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Base64;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mobileprogrammingproject.R;
 import com.example.mobileprogrammingproject.databinding.ActivityLoginBinding;
-import com.example.mobileprogrammingproject.model.User;
-import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
@@ -45,9 +34,6 @@ import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.MeV2ResponseCallback;
 import com.kakao.usermgmt.response.MeV2Response;
 import com.kakao.util.exception.KakaoException;
-
-import java.io.File;
-import java.security.MessageDigest;
 
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener{
 
@@ -68,23 +54,20 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Set Binding
         mBinding = ActivityLoginBinding.inflate(getLayoutInflater());
         View view = mBinding.getRoot();
         setContentView(view);
         setGooglePlusButtonText(mBinding.btnGoogle, "구글 로그인");
 
-        mBinding.tvSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
-                startActivity(intent);
-            }
-        });
+        apiInit();
+        init();
 
+    }
+
+    private void apiInit() {
 
         // kakao Login
-
-
         mSessionCallback = new ISessionCallback() {
             @Override
             public void onSessionOpened() {
@@ -130,7 +113,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
 //        getAppKeyHash();
 
-     // google Login
+        // google Login
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -146,6 +129,31 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             }
         });
     }
+
+    private void init() {
+        mBinding.tvSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+                startActivity(intent);
+            }
+        });
+        mBinding.tvSearchEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, SearchEmailActivity.class);
+                startActivity(intent);
+            }
+        });
+        mBinding.tvSearchPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, SearchPasswordActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
     @Override
     public void onStart() {
         super.onStart();
