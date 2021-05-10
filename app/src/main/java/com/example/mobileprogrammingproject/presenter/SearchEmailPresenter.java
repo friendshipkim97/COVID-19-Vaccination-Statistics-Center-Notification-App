@@ -2,23 +2,25 @@ package com.example.mobileprogrammingproject.presenter;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mobileprogrammingproject.constants.Constants.ESearchEmail;
 import com.example.mobileprogrammingproject.dao.AppDatabase;
-import com.example.mobileprogrammingproject.valueObject.SearchEmailChild;
+import com.example.mobileprogrammingproject.valueObject.VSearchEmailChild;
 import com.example.mobileprogrammingproject.databinding.ActivitySearchEmailBinding;
 import com.example.mobileprogrammingproject.view.SearchEmailActivity;
+
 
 import java.util.ArrayList;
 
 public class SearchEmailPresenter implements SearchEmailContract.Presenter{
 
     // Name And Birth Attributes
-    private ArrayList<SearchEmailChild> arrayListNameAndBirth;
-    private SearchEmailChild searchEmailChildNAB;
+    private ArrayList<VSearchEmailChild> arrayListNameAndBirth;
+    private VSearchEmailChild VSearchEmailChildNAB;
     private RecyclerView.Adapter adapterNameAndBirth;
 
     // Name And Phone Attributes
-    private ArrayList<SearchEmailChild> arrayListNameAndPhone;
-    private SearchEmailChild searchEmailChildNAP;
+    private ArrayList<VSearchEmailChild> arrayListNameAndPhone;
+    private VSearchEmailChild VSearchEmailChildNAP;
     private RecyclerView.Adapter adapterNameAndPhone;
 
     // Other Attributes
@@ -28,7 +30,7 @@ public class SearchEmailPresenter implements SearchEmailContract.Presenter{
 
     // Constructor
     public SearchEmailPresenter(SearchEmailActivity searchEmailActivity, ActivitySearchEmailBinding mBinding, AppDatabase mAppDatabase,
-                                ArrayList<SearchEmailChild> arrayListNameAndBirth, ArrayList<SearchEmailChild> arrayListNameAndPhone,
+                                ArrayList<VSearchEmailChild> arrayListNameAndBirth, ArrayList<VSearchEmailChild> arrayListNameAndPhone,
                                 RecyclerView.Adapter adapterNameAndBirth, RecyclerView.Adapter adapterNameAndPhone) {
          this.searchEmailActivity = searchEmailActivity;
          this.mBinding = mBinding;
@@ -37,15 +39,17 @@ public class SearchEmailPresenter implements SearchEmailContract.Presenter{
          this.arrayListNameAndPhone = arrayListNameAndPhone;
          this.adapterNameAndBirth = adapterNameAndBirth;
          this.adapterNameAndPhone = adapterNameAndPhone;
-         searchEmailChildNAB = new SearchEmailChild("이름을 입력하세요", "생년월일을 입력하세요 ex)1997년4월30일", "아이디찾기");
-         searchEmailChildNAP = new SearchEmailChild("이름을 입력하세요", "휴대폰 번호를 -포함해 입력하세요", "아이디찾기");
+         VSearchEmailChildNAB = new VSearchEmailChild(ESearchEmail.searchEmailNABText1.getText(),
+                 ESearchEmail.searchEmailNABText2.getText(), ESearchEmail.searchEmailNABText3.getText());
+         VSearchEmailChildNAP = new VSearchEmailChild(ESearchEmail.searchEmailNAPText1.getText(),
+                ESearchEmail.searchEmailNAPText2.getText(), ESearchEmail.searchEmailNAPText3.getText());
 
     }
 
     @Override
     public void NABClick() {
         if(arrayListNameAndBirth.size()==0) {
-            arrayListNameAndBirth.add(searchEmailChildNAB);
+            arrayListNameAndBirth.add(VSearchEmailChildNAB);
         }
         if(arrayListNameAndPhone.size()==1) {
             arrayListNameAndPhone.remove(0);
@@ -57,7 +61,7 @@ public class SearchEmailPresenter implements SearchEmailContract.Presenter{
     @Override
     public void NAPClick() {
         if(arrayListNameAndPhone.size()==0) {
-            arrayListNameAndPhone.add(searchEmailChildNAP);
+            arrayListNameAndPhone.add(VSearchEmailChildNAP);
         }
         if(arrayListNameAndBirth.size()==1) {
             arrayListNameAndBirth.remove(0);

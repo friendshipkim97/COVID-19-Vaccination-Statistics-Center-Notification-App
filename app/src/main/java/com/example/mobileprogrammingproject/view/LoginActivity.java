@@ -6,12 +6,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mobileprogrammingproject.R;
 import com.example.mobileprogrammingproject.databinding.ActivityLoginBinding;
+import com.example.mobileprogrammingproject.presenter.LoginContract;
+import com.example.mobileprogrammingproject.presenter.LoginPresenter;
+import com.example.mobileprogrammingproject.presenter.SignUpContract;
+import com.example.mobileprogrammingproject.valueObject.VUser;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -34,11 +39,14 @@ import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.MeV2ResponseCallback;
 import com.kakao.usermgmt.response.MeV2Response;
 import com.kakao.util.exception.KakaoException;
+import com.example.mobileprogrammingproject.constants.Constants.ELogin;
 
-public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener{
+public class LoginActivity extends AppCompatActivity implements LoginContract.View, GoogleApiClient.OnConnectionFailedListener{
 
     // Attributes
     private ActivityLoginBinding mBinding;
+    private static final int signUpResultCode = 200;
+    private LoginContract.Presenter loginPresenter;
 
     // kakao Attributes
     private ISessionCallback mSessionCallback;
@@ -58,8 +66,10 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         mBinding = ActivityLoginBinding.inflate(getLayoutInflater());
         View view = mBinding.getRoot();
         setContentView(view);
-        setGooglePlusButtonText(mBinding.btnGoogle, "구글 로그인");
 
+        loginPresenter = new LoginPresenter(getApplicationContext());
+
+        // init
         apiInit();
         init();
 
@@ -76,28 +86,21 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                     @Override
                     public void onFailure(ErrorResult errorResult) {
                         // 로그인 실패
-                        Toast.makeText(LoginActivity.this, "로그인 도중에 오류가 발생했습니다.", Toast.LENGTH_SHORT).show();
+                        showToast(ELogin.kakaoLoginErrorMessage.getText());
                     }
 
                     @Override
                     public void onSessionClosed(ErrorResult errorResult) {
-
                         // 세션이 닫힘..
-                        Toast.makeText(LoginActivity.this, "세션이 닫혔습니다.. 다시 시도해주세요", Toast.LENGTH_SHORT).show();
+                        showToast(ELogin.kakaoSessionClosedMessage.getText());
                     }
 
                     @Override
                     public void onSuccess(MeV2Response result) {
-
                         // 로그인 성공
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        intent.putExtra("name", result.getKakaoAccount().getProfile().getNickname());
-                        intent.putExtra("email", result.getKakaoAccount().getEmail());
-                        intent.putExtra("profileImg", result.getKakaoAccount().getProfile().getProfileImageUrl());
-                        intent.putExtra("check", "KAKAO");
+                        Intent intent = loginPresenter.kakakOnSuccess(result);
                         startActivity(intent);
-
-                        Toast.makeText(LoginActivity.this, "환영 합니다 !", Toast.LENGTH_SHORT).show();
+                        showToast(ELogin.kakaoLoginSuccessMessage.getText());
                     }
                 });
             }
@@ -105,7 +108,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             @Override
             public void onSessionOpenFailed(KakaoException exception)
             {
-                Toast.makeText(LoginActivity.this, "onSessionOpenFailed", Toast.LENGTH_SHORT).show();
+                showToast(ELogin.kakaoSessionFailedMessage.getText());
             }
         };
         Session.getCurrentSession().addCallback(mSessionCallback);
@@ -131,11 +134,16 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     }
 
     private void init() {
+
+        // google LoginButton setText
+        setGooglePlusButtonText(mBinding.btnGoogle, ELogin.googleLoginButtonText.getText());
+
         mBinding.tvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, signUpResultCode);
+//                startActivity(intent);
             }
         });
         mBinding.tvSearchEmail.setOnClickListener(new View.OnClickListener() {
@@ -161,8 +169,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         updateUI(currentUser);
     }
 
-
-
     // 카카오 로그인 시 필요한 해시키를 얻는 메소드 이다.
 //    private void getAppKeyHash() {
 //        try {
@@ -186,6 +192,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             super.onActivityResult(requestCode, resultCode, data);
         }
 
+        // google Login
         if (requestCode == REQ_SIGN_GOOGLE) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
@@ -193,6 +200,15 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 firebaseAuthWithGoogle(account.getIdToken());
             } catch (ApiException e) {
             }
+        }
+
+        // app Login
+        if(resultCode == signUpResultCode){
+            String userEmail = data.getStringExtra(ELogin.intentResultEmail.getText());
+            String userPassword = data.getStringExtra(ELogin.intentResultPassword.getText());
+
+                mBinding.etLoginEmail.setText(userEmail);
+                mBinding.etLoginPassword.setText(userPassword);
         }
     }
 
@@ -211,8 +227,10 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                     }
                 });
     }
+
+    // 액티비티가 죽었을 때
     @Override
-    protected void onDestroy() { // 액티비티가 죽었을 때
+    protected void onDestroy() {
         super.onDestroy();
         Session.getCurrentSession().removeCallback(mSessionCallback);
     }
@@ -223,15 +241,12 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     }
     private void updateUI(FirebaseUser user) {
         if(user!=null) {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            intent.putExtra("name", user.getDisplayName());
-            intent.putExtra("email", user.getEmail());
-            intent.putExtra("profileImg", String.valueOf(user.getPhotoUrl())); // String.valueOf 특정 자료형을 String 형태로 변환
-            intent.putExtra("check", "GOOGLE");
+            Intent intent = loginPresenter.googleOnSuccess(user);
             startActivity(intent);
         }
     }
 
+    // google button setText
     protected void setGooglePlusButtonText(SignInButton signInButton, String buttonText) {
         // Search all the views inside SignInButton for TextView
         for (int i = 0; i < signInButton.getChildCount(); i++) {
@@ -246,5 +261,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     }
 
 
-
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+    }
 }

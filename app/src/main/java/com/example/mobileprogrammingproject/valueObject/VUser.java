@@ -2,20 +2,36 @@ package com.example.mobileprogrammingproject.valueObject;
 
 public class VUser {
 
+    private int id;
+    private String password;
     private String email;
-    private String nickName;
-    private String strProfileImg;
+    private String name;
+    private String profileImg;
+    private String dateOfBirth;
+    private String phoneNumber;
+    private String gender;
+    private String emailType;
 
-    public VUser(String email, String nickName, String strProfileImg){
+    public VUser(int id, String password, String email, String name, String profileImg, String dateOfBirth, String phoneNumber, String gender, String emailType) {
+        this.id = id;
+        this.password = password;
         this.email = email;
-        this.nickName = nickName;
-        this.strProfileImg = strProfileImg;
+        this.name = name;
+        this.profileImg = profileImg;
+        this.dateOfBirth = dateOfBirth;
+        this.phoneNumber = phoneNumber;
+        this.gender = gender;
+        this.emailType = emailType;
     }
 
-    public String getNickName() { return nickName; }
-    public void setNickName(String nickName) { this.nickName = nickName; }
+    // Getters
+    public int getId() {return id; }
+    public String getPassword() {return password; }
     public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
-    public String getStrProfileImg() { return strProfileImg; }
-    public void setStrProfileImg(String strProfileImg) { this.strProfileImg = strProfileImg; }
+    public String getName() { return name; }
+    public String getProfileImg() { return profileImg; }
+    public String getDateOfBirth() { return dateOfBirth; }
+    public String getPhoneNumber() { return phoneNumber; }
+    public String getGender() { return gender; }
+    public String getEmailType() {return emailType; }
 }

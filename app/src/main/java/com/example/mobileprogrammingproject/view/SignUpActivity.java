@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -16,6 +18,8 @@ import com.example.mobileprogrammingproject.R;
 import com.example.mobileprogrammingproject.databinding.ActivitySignUpBinding;
 import com.example.mobileprogrammingproject.presenter.SignUpContract;
 import com.example.mobileprogrammingproject.presenter.SignUpPresenter;
+import com.example.mobileprogrammingproject.valueObject.VUser;
+import com.example.mobileprogrammingproject.constants.Constants.ESignUp;
 
 public class SignUpActivity extends AppCompatActivity implements SignUpContract.View {
 
@@ -23,6 +27,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpContract.
     private ActivitySignUpBinding mBinding;
     private AppDatabase mAppDatabase;
     private SignUpContract.Presenter signUpPresenter;
+    private static final int signUpResultCode = 200;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +45,9 @@ public class SignUpActivity extends AppCompatActivity implements SignUpContract.
         mAppDatabase = AppDatabase.getInstance(getApplicationContext());
 
         // set Presenter
-        signUpPresenter = new SignUpPresenter(this, mBinding, mAppDatabase);
+        signUpPresenter = new SignUpPresenter(this, mBinding, mAppDatabase, getApplicationContext());
 
+        // init
         init();
 
     }
@@ -57,7 +63,10 @@ public class SignUpActivity extends AppCompatActivity implements SignUpContract.
         mBinding.btnCompleteSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                signUpPresenter.signUpCheck();
+                Intent intent = signUpPresenter.signUpCheck();
+                if(intent!=null){
+                    sendUserInfo(intent);
+                }
             }
         });
 
@@ -73,6 +82,12 @@ public class SignUpActivity extends AppCompatActivity implements SignUpContract.
     @Override
     public void showToast(String message) {
             Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void sendUserInfo(Intent intent) {
+        setResult(signUpResultCode, intent);
+        finish();
     }
 
     // ToolBar Settings

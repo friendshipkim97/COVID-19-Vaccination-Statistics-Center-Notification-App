@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
-        android:text="이메일 찾는 방법을 선택해주세요."
+        android:text="@string/searchEmailTextInfo"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -62,7 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="5"
-            android:text="이름/생년월일로 찾기"
+            android:text="@string/searchEmailTextNAB"
             android:textSize="24sp" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_weight="5"
-            android:text="이름/휴대폰번호로 찾기"
+            android:text="@string/searchEmailTextNAP"
             android:textSize="24sp" />
 
         <androidx.recyclerview.widget.RecyclerView

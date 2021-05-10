@@ -1,6 +1,6 @@
 package com.example.mobileprogrammingproject.valueObject;
 
-public class SearchEmailChild {
+public class VSearchEmailChild {
 
     // Attributes
     private String et_recycle1;
@@ -8,7 +8,7 @@ public class SearchEmailChild {
     private String et_recycle3;
 
     // Constructor
-    public SearchEmailChild(String et_recycle1, String et_recycle2, String et_recycle3) {
+    public VSearchEmailChild(String et_recycle1, String et_recycle2, String et_recycle3) {
         this.et_recycle1 = et_recycle1;
         this.et_recycle2 = et_recycle2;
         this.et_recycle3 = et_recycle3;

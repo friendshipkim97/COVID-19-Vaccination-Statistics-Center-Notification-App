@@ -1,9 +1,15 @@
 package com.example.mobileprogrammingproject.presenter;
 
+import android.content.Context;
+import android.content.Intent;
+
 import com.example.mobileprogrammingproject.dao.AppDatabase;
 import com.example.mobileprogrammingproject.constants.Constants.ESignUp;
 import com.example.mobileprogrammingproject.databinding.ActivitySignUpBinding;
 import com.example.mobileprogrammingproject.model.User;
+import com.example.mobileprogrammingproject.valueObject.VUser;
+import com.example.mobileprogrammingproject.view.LoginActivity;
+import com.example.mobileprogrammingproject.view.SignUpActivity;
 
 import java.util.List;
 import java.util.regex.Pattern;
@@ -14,12 +20,14 @@ public class SignUpPresenter implements SignUpContract.Presenter{
     private SignUpContract.View signUpView;
     private ActivitySignUpBinding mBinding;
     private AppDatabase mAppDatabase;
+    private Context context;
 
     // Constructor
-    public SignUpPresenter(SignUpContract.View signUpView, ActivitySignUpBinding mBinding, AppDatabase mAppDatabase){
+    public SignUpPresenter(SignUpContract.View signUpView, ActivitySignUpBinding mBinding, AppDatabase mAppDatabase, Context getApplicationContext){
         this.signUpView = signUpView;
         this.mBinding = mBinding;
         this.mAppDatabase = mAppDatabase;
+        this.context = getApplicationContext;
     }
 
     public boolean emailDuplicateCheck(Boolean buttonIsClicked){
@@ -48,25 +56,32 @@ public class SignUpPresenter implements SignUpContract.Presenter{
         return emailDuplicateResult;
     }
 
-    public boolean signUpCheck() {
+    public Intent signUpCheck() {
 
         if(emailDuplicateCheck(false)==true){
-            return false;
+            return null;
         } else if(validPasswordCheck()==false){
-            return false;
+            return null;
         } else if(validNameCheck()==false){
-            return false;
+            return null;
         } else if(phoneNumberCheck()==false){
-            return false;
+            return null;
         } else if(genderCheck()==false){
-            return false;
+            return null;
         } else if(agreeCheck()==false){
-            return false;
+            return null;
         } else{
             User user = createUser();
             mAppDatabase.userDao().insert(user);
+            VUser vUser = new VUser(user.getId(), user.getPassword(), user.getEmail(), user.getName(), user.getProfileImg(),
+                    user.getDateOfBirth(), user.getPhoneNumber(), user.getGender(), user.getEmailType());
             signUpView.showToast(ESignUp.completeSignUpMessage.getText());
-            return true;
+            Intent intent = new Intent(context, LoginActivity.class);
+            intent.putExtra(ESignUp.userEmail.getText(), vUser.getEmail());
+            intent.putExtra(ESignUp.userPassword.getText(), vUser.getPassword());
+//            setResult(signUpResultCode, intent);
+//            signUpView.sendUserInfo(vUser);
+            return intent;
         }
     }
 

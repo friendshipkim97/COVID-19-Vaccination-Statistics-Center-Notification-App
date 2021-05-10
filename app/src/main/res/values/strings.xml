@@ -11,6 +11,9 @@
 
     <!--    activity_search_email.xml-->
     <string name="searchEmailTextToolbar">이메일 찾기</string>
+    <string name="searchEmailTextInfo">이메일 찾는 방법을 선택해주세요.</string>
+    <string name="searchEmailTextNAB">이름/생년월일로 찾기</string>
+    <string name="searchEmailTextNAP">이름/휴대폰번호로 찾기</string>
 
     <!--    activity_search_password.xml-->
     <string name="searchPasswordTextToolbar">비밀번호 찾기</string>

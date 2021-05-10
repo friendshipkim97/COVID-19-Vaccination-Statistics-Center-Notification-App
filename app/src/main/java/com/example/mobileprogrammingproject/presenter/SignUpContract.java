@@ -1,8 +1,13 @@
 package com.example.mobileprogrammingproject.presenter;
 
+import android.content.Intent;
+
+import com.example.mobileprogrammingproject.valueObject.VUser;
+
 public interface SignUpContract {
     interface View{
         void showToast(String message);
+        void sendUserInfo(Intent intent);
     }
 
     interface Presenter{
@@ -12,6 +17,6 @@ public interface SignUpContract {
         boolean validNameCheck();
         boolean phoneNumberCheck();
         boolean genderCheck();
-        boolean signUpCheck();
+        Intent signUpCheck();
     }
 }

@@ -14,9 +14,9 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.mobileprogrammingproject.dao.AppDatabase;
-import com.example.mobileprogrammingproject.adapter.CustomAdapter;
+import com.example.mobileprogrammingproject.adapter.SearchEmailCustomAdapter;
 import com.example.mobileprogrammingproject.R;
-import com.example.mobileprogrammingproject.valueObject.SearchEmailChild;
+import com.example.mobileprogrammingproject.valueObject.VSearchEmailChild;
 import com.example.mobileprogrammingproject.databinding.ActivitySearchEmailBinding;
 import com.example.mobileprogrammingproject.databinding.SearchEmailChildListViewBinding;
 import com.example.mobileprogrammingproject.presenter.SearchEmailContract;
@@ -30,13 +30,13 @@ public class SearchEmailActivity extends AppCompatActivity implements SearchEmai
     private RecyclerView recyclerViewNameAndBirth;
     private RecyclerView.Adapter adapterNameAndBirth;
     private RecyclerView.LayoutManager layoutManagerNameAndBirth;
-    private ArrayList<SearchEmailChild> arrayListNameAndBirth;
+    private ArrayList<VSearchEmailChild> arrayListNameAndBirth;
 
     // Name And Phone Attributes
     private RecyclerView recyclerViewNameAndPhone;
     private RecyclerView.Adapter adapterNameAndPhone;
     private RecyclerView.LayoutManager layoutManagerNameAndPhone;
-    private ArrayList<SearchEmailChild> arrayListNameAndPhone;
+    private ArrayList<VSearchEmailChild> arrayListNameAndPhone;
 
     // Other Attributes
     private ActivitySearchEmailBinding mBinding;
@@ -64,7 +64,7 @@ public class SearchEmailActivity extends AppCompatActivity implements SearchEmai
         layoutManagerNameAndBirth = new LinearLayoutManager(this);
         recyclerViewNameAndBirth.setLayoutManager(layoutManagerNameAndBirth);
         arrayListNameAndBirth = new ArrayList<>();
-        adapterNameAndBirth = new CustomAdapter(arrayListNameAndBirth, this, searchEmailBinding,this, mAppDatabase);
+        adapterNameAndBirth = new SearchEmailCustomAdapter(arrayListNameAndBirth, this, searchEmailBinding,this, mAppDatabase);
         recyclerViewNameAndBirth.setAdapter(adapterNameAndBirth);
 
         // Name And Phone
@@ -73,7 +73,7 @@ public class SearchEmailActivity extends AppCompatActivity implements SearchEmai
         layoutManagerNameAndPhone = new LinearLayoutManager(this);
         recyclerViewNameAndPhone.setLayoutManager(layoutManagerNameAndPhone);
         arrayListNameAndPhone = new ArrayList<>();
-        adapterNameAndPhone = new CustomAdapter(arrayListNameAndPhone, this, searchEmailBinding, this, mAppDatabase);
+        adapterNameAndPhone = new SearchEmailCustomAdapter(arrayListNameAndPhone, this, searchEmailBinding, this, mAppDatabase);
         recyclerViewNameAndPhone.setAdapter(adapterNameAndPhone);
 
 

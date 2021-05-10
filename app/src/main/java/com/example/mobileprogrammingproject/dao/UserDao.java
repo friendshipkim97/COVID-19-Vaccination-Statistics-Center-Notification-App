@@ -25,6 +25,9 @@ public interface UserDao {
     @Query("SELECT email FROM User where name=(:name) and dateOfBirth=(:dateOfBirth)")
     String findEmailByNameAndBirth(String name, String dateOfBirth);
 
+    @Query("SELECT email FROM User where name=(:name) and phoneNumber=(:phoneNumber)")
+    String findEmailByNameAndPhone(String name, String phoneNumber);
+
     @Insert
     void insert(User user);
 
