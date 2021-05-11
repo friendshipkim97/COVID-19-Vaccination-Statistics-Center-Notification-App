@@ -50,7 +50,7 @@ public class SearchPasswordPresenter implements SearchPasswordContract.Presenter
             List<String> allEmail = mAppDatabase.userDao().findAllEmail();
             for (String email : allEmail) {
                 if (email.equals(recipients)) {
-                    if (mAppDatabase.userDao().findTypeByEmail(email).equals("app")) {
+                    if (mAppDatabase.userDao().findTypeByEmail(email).equals(ESearchPasswordPresenter.emailAppType.getText())) {
                         emailDuplicateResult = true;
                     }
                 }

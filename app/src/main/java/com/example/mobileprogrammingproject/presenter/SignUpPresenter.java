@@ -39,7 +39,7 @@ public class SignUpPresenter implements SignUpContract.Presenter{
             List<String> allEmail = mAppDatabase.userDao().findAllEmail();
             for (String email : allEmail) {
                 if (email.equals(inputEmail)) {
-                    if (mAppDatabase.userDao().findTypeByEmail(email).equals("app")) {
+                    if (mAppDatabase.userDao().findTypeByEmail(email).equals(ESignUp.emailAppType.getText())) {
                         emailDuplicateResult = true;
                         signUpView.showToast(ESignUp.emailDuplicateMessage.getText());
                     }
