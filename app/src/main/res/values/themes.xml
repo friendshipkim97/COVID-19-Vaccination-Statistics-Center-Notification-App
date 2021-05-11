@@ -41,4 +41,8 @@
 <!--        <item name="android:checkboxStyle">@style/BmjuaRadioButtonStyle</item>-->
 <!--        <item name="android:textViewStyle">@style/BmjuaCheckboxStyle</item>-->
     </style>
+    <style name="CustomRadioButton" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">#000000</item>
+        <item name="colorControlNormal">#000000</item>
+    </style>
 </resources>

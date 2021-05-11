@@ -13,6 +13,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
         android:inputType="textPersonName"
+        android:backgroundTint="#000000"
         tools:layout_editor_absoluteX="90dp"
         tools:layout_editor_absoluteY="169dp" />
 
@@ -22,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
+        android:backgroundTint="#000000"
         android:ems="10"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="90dp"

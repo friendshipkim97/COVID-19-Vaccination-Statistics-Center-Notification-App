@@ -18,9 +18,6 @@ public class Constants {
         intentResultEmail("userEmail"),
         intentResultPassword("userPassword");
 
-
-
-
         private String text;
         private ELogin(String text){
             this.text=text;
@@ -57,6 +54,29 @@ public class Constants {
 
         private String text;
         private ESearchEmailCustomAdapter(String text){
+            this.text=text;
+        }
+        public String getText(){
+            return this.text;
+        }
+    }
+
+    public enum ESearchPasswordPresenter{
+        user("rlawjddn9704301@gmail.com"),
+        password("wjddn4030"),
+        mailTitle("찾고자 하는 password는 다음과 같습니다."),
+        mailContents1("찾고자 하는 password는 "),
+        mailContents2(" 입니다."),
+        mailExceptionMessage("SendMail"),
+        notValidEmail("존재하지 않는 이메일입니다."),
+        completedSendMail("이메일로 비밀번호를 전송했습니다."),
+        emailFormatErrorMessage("이메일을 알맞은 형태로 입력해주세요."),
+        emailLetterCountError("이메일을 10~20자로 입력해주세요."),
+        emailFormat("\\w+@\\w+\\.\\w+(\\.\\w+)?");
+
+
+        private String text;
+        private ESearchPasswordPresenter(String text){
             this.text=text;
         }
         public String getText(){

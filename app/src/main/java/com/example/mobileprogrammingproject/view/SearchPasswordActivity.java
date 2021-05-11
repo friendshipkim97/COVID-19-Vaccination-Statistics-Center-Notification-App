@@ -5,29 +5,57 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.StrictMode;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
+import com.example.mobileprogrammingproject.dao.AppDatabase;
+import com.example.mobileprogrammingproject.gMailSender.GMailSender;
 import com.example.mobileprogrammingproject.R;
-import com.example.mobileprogrammingproject.databinding.ActivitySearchEmailBinding;
 import com.example.mobileprogrammingproject.databinding.ActivitySearchPasswordBinding;
+import com.example.mobileprogrammingproject.presenter.SearchPasswordContract;
+import com.example.mobileprogrammingproject.presenter.SearchPasswordPresenter;
 
-public class SearchPasswordActivity extends AppCompatActivity {
+public class SearchPasswordActivity extends AppCompatActivity implements SearchPasswordContract.View{
 
+    // Attributes
     private ActivitySearchPasswordBinding mBinding;
+    private AppDatabase mAppDatabase;
+    private SearchPasswordContract.Presenter searchPasswordPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                .permitDiskReads()
+                .permitDiskWrites()
+                .permitNetwork().build());
 
         // Set Binding
         mBinding = ActivitySearchPasswordBinding.inflate(getLayoutInflater());
         View view = mBinding.getRoot();
         setContentView(view);
 
+        mAppDatabase = AppDatabase.getInstance(getApplicationContext());
+        searchPasswordPresenter = new SearchPasswordPresenter(this, mBinding, mAppDatabase);
+
+        init();
         initToolbar();
+
+    }
+
+    private void init() {
+        mBinding.btnSendEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String findEmail = mBinding.etPasswordSearchEmail.getText().toString();
+                searchPasswordPresenter.sendGmail(findEmail);
+            }
+        });
     }
 
     // ToolBar Settings
@@ -54,5 +82,10 @@ public class SearchPasswordActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
 }

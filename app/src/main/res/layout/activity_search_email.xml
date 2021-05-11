@@ -61,6 +61,7 @@
             android:id="@+id/btn_searchEmailByNameAndBirth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:theme="@style/CustomRadioButton"
             android:layout_weight="5"
             android:text="@string/searchEmailTextNAB"
             android:textSize="24sp" />
@@ -81,6 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_weight="5"
+            android:theme="@style/CustomRadioButton"
             android:text="@string/searchEmailTextNAP"
             android:textSize="24sp" />
 

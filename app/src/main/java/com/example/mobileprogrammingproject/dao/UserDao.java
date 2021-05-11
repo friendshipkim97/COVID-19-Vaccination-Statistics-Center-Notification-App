@@ -28,6 +28,9 @@ public interface UserDao {
     @Query("SELECT email FROM User where name=(:name) and phoneNumber=(:phoneNumber)")
     String findEmailByNameAndPhone(String name, String phoneNumber);
 
+    @Query("SELECT password FROM User where email=(:email)")
+    String findPasswordByEmail(String email);
+
     @Insert
     void insert(User user);
 

@@ -90,6 +90,9 @@ dependencies {
 
     // 리사이클러뷰 추가
     implementation 'androidx.recyclerview:recyclerview:1.2.0'
+
+    // email sender
+    compile fileTree(include: ['*.jar'], dir: 'libs')
 }
 
 //파이어 베이스 추가

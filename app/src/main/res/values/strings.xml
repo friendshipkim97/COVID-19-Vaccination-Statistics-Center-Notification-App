@@ -17,6 +17,8 @@
 
     <!--    activity_search_password.xml-->
     <string name="searchPasswordTextToolbar">비밀번호 찾기</string>
+    <string name="searchPasswordTextInfo">등록된 이메일을 통하여 인증합니다.\n Email을 입력해주세요.</string>
+    <string name="searchPasswordTextButton">비밀번호 찾기</string>
 
     <!--    activity_sign_up.xml-->
     <string name="signUpText">간편회원가입</string>

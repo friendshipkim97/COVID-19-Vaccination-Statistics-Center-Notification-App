@@ -199,6 +199,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
+                    android:theme="@style/CustomRadioButton"
                     android:text="@string/signUpTextMale" />
 
                 <RadioButton
@@ -206,6 +207,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
+                    android:theme="@style/CustomRadioButton"
                     android:text="@string/signUpTextFemale" />
             </RadioGroup>
 
@@ -219,6 +221,7 @@
                 android:backgroundTint="#000000"
                 android:ems="14"
                 android:inputType="textPersonName"
+                android:theme="@style/CustomRadioButton"
                 android:text="@string/signUpTextFullAgreement"
                 android:textSize="18sp"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -234,6 +237,7 @@
                 android:layout_marginRight="120dp"
                 android:backgroundTint="#000000"
                 android:ems="14"
+                android:theme="@style/CustomRadioButton"
                 android:inputType="textPersonName"
                 android:text="@string/signUpTextTermsOfServiceAgreement"
                 android:textSize="18sp"
@@ -250,6 +254,7 @@
                 android:layout_marginRight="120dp"
                 android:backgroundTint="#000000"
                 android:ems="14"
+                android:theme="@style/CustomRadioButton"
                 android:inputType="textPersonName"
                 android:text="@string/signUpTextPrivacyAgreement"
                 android:textSize="18sp"
