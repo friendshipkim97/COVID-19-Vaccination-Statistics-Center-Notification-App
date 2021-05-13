@@ -72,6 +72,7 @@ public class Constants {
         completedSendMail("이메일로 비밀번호를 전송했습니다."),
         emailFormatErrorMessage("이메일을 알맞은 형태로 입력해주세요."),
         emailLetterCountError("이메일을 10~20자로 입력해주세요."),
+        emailAppType("app"),
         emailFormat("\\w+@\\w+\\.\\w+(\\.\\w+)?");
 
 
