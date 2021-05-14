@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mobileprogrammingproject.R;
+import com.example.mobileprogrammingproject.dao.AppDatabase;
 import com.example.mobileprogrammingproject.databinding.ActivityLoginBinding;
 import com.example.mobileprogrammingproject.presenter.LoginContract;
 import com.example.mobileprogrammingproject.presenter.LoginPresenter;
@@ -47,6 +48,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     private ActivityLoginBinding mBinding;
     private static final int signUpResultCode = 200;
     private LoginContract.Presenter loginPresenter;
+    private AppDatabase mAppDatabase;
 
     // kakao Attributes
     private ISessionCallback mSessionCallback;
@@ -67,7 +69,10 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         View view = mBinding.getRoot();
         setContentView(view);
 
-        loginPresenter = new LoginPresenter(getApplicationContext());
+        // set Database
+        mAppDatabase = AppDatabase.getInstance(getApplicationContext());
+
+        loginPresenter = new LoginPresenter(getApplicationContext(), mAppDatabase, this);
 
         // init
         apiInit();
@@ -124,7 +129,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         mGoogleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions);
         auth = FirebaseAuth.getInstance(); // 파이어베이스 인증 객체 초기화
 
-        mBinding.btnGoogle.setOnClickListener(new View.OnClickListener() { // 구글 로그인 버튼을 클릭했을 때 이곳을 수행
+        mBinding.btnGoogleLogin.setOnClickListener(new View.OnClickListener() { // 구글 로그인 버튼을 클릭했을 때 이곳을 수행
             @Override
             public void onClick(View view) {
                 Intent intent = mGoogleSignInClient.getSignInIntent();
@@ -136,14 +141,13 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     private void init() {
 
         // google LoginButton setText
-        setGooglePlusButtonText(mBinding.btnGoogle, ELogin.googleLoginButtonText.getText());
+        setGooglePlusButtonText(mBinding.btnGoogleLogin, ELogin.googleLoginButtonText.getText());
 
         mBinding.tvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
                 startActivityForResult(intent, signUpResultCode);
-//                startActivity(intent);
             }
         });
         mBinding.tvSearchEmail.setOnClickListener(new View.OnClickListener() {
@@ -158,6 +162,17 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, SearchPasswordActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        mBinding.btnAppLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Boolean loginSuccess = loginPresenter.validLoginCheck(mBinding.etLoginEmail.getText().toString(), mBinding.etLoginPassword.getText().toString());
+                if(loginSuccess == true){
+                    Intent intent = loginPresenter.appOnSuccess(mBinding.etLoginEmail.getText().toString(), mBinding.etLoginPassword.getText().toString());
+                    startActivity(intent);
+                }
             }
         });
     }
@@ -206,7 +221,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         if(resultCode == signUpResultCode){
             String userEmail = data.getStringExtra(ELogin.intentResultEmail.getText());
             String userPassword = data.getStringExtra(ELogin.intentResultPassword.getText());
-
                 mBinding.etLoginEmail.setText(userEmail);
                 mBinding.etLoginPassword.setText(userPassword);
         }

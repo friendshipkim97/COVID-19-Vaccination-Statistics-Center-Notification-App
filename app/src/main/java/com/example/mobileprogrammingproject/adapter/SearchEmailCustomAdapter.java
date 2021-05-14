@@ -11,13 +11,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mobileprogrammingproject.R;
+import com.example.mobileprogrammingproject.constants.Constants;
 import com.example.mobileprogrammingproject.dao.AppDatabase;
 import com.example.mobileprogrammingproject.databinding.SearchEmailChildListViewBinding;
+import com.example.mobileprogrammingproject.model.User;
 import com.example.mobileprogrammingproject.presenter.SearchEmailContract;
 import com.example.mobileprogrammingproject.valueObject.VSearchEmailChild;
 import com.example.mobileprogrammingproject.constants.Constants.ESearchEmailCustomAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SearchEmailCustomAdapter extends RecyclerView.Adapter<SearchEmailCustomAdapter.CustomViewHolder>{
 
@@ -91,12 +94,17 @@ public class SearchEmailCustomAdapter extends RecyclerView.Adapter<SearchEmailCu
         if (validNameCheck(holder) == false) {
             return false;
         } else {
-            String email = mAppDatabase.userDao().findEmailByNameAndPhone(holder.et_recycle1.getText().toString(), holder.et_recycle2.getText().toString());
-            if(email==null){
+            List<User> userList = mAppDatabase.userDao().findEmailByNameAndPhone(holder.et_recycle1.getText().toString(),
+                    holder.et_recycle2.getText().toString(), ESearchEmailCustomAdapter.emailAppType.getText());
+
+            if(userList==null){
                 searchEmailView.showToast(ESearchEmailCustomAdapter.noMatchingEmail.getText());
                 return false;
             } else {
-                searchEmailView.showToast(ESearchEmailCustomAdapter.notificationMessage1.getText() + email + ESearchEmailCustomAdapter.notificationMessage2.getText());
+                for(int i=0; i<userList.size(); i++)
+                {
+                    searchEmailView.showToast(ESearchEmailCustomAdapter.notificationMessage1.getText() + userList.get(i).getEmail() + ESearchEmailCustomAdapter.notificationMessage2.getText());
+                }
                 return true;
             }
         }
@@ -104,15 +112,31 @@ public class SearchEmailCustomAdapter extends RecyclerView.Adapter<SearchEmailCu
 
     public boolean searchEmailCheckNAB(CustomViewHolder holder) {
 
+//        if (validNameCheck(holder) == false) {
+//            return false;
+//        } else {
+//            String email = mAppDatabase.userDao().findEmailByNameAndBirth(holder.et_recycle1.getText().toString(),
+//                    holder.et_recycle2.getText().toString(), ESearchEmailCustomAdapter.emailAppType.getText());
+//            if(email==null){
+//                searchEmailView.showToast(ESearchEmailCustomAdapter.noMatchingEmail.getText());
+//                return false;
+//            } else {
+//                searchEmailView.showToast(ESearchEmailCustomAdapter.notificationMessage1.getText() + email + ESearchEmailCustomAdapter.notificationMessage2.getText());
+//                return true;
+//            }
+//        }
         if (validNameCheck(holder) == false) {
             return false;
         } else {
-            String email = mAppDatabase.userDao().findEmailByNameAndBirth(holder.et_recycle1.getText().toString(), holder.et_recycle2.getText().toString());
-            if(email==null){
+            List<User> userList = mAppDatabase.userDao().findEmailByNameAndBirth(holder.et_recycle1.getText().toString(),
+                    holder.et_recycle2.getText().toString(), ESearchEmailCustomAdapter.emailAppType.getText());
+            if(userList==null){
                 searchEmailView.showToast(ESearchEmailCustomAdapter.noMatchingEmail.getText());
                 return false;
             } else {
-                searchEmailView.showToast(ESearchEmailCustomAdapter.notificationMessage1.getText() + email + ESearchEmailCustomAdapter.notificationMessage2.getText());
+                for(int i=0; i<userList.size(); i++) {
+                    searchEmailView.showToast(ESearchEmailCustomAdapter.notificationMessage1.getText() + userList.get(i).getEmail() + ESearchEmailCustomAdapter.notificationMessage2.getText());
+                }
                 return true;
             }
         }

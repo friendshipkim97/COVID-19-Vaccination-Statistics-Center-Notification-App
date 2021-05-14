@@ -12,5 +12,7 @@ public interface LoginContract {
     interface Presenter{
         Intent kakakOnSuccess(MeV2Response result);
         Intent googleOnSuccess(FirebaseUser user);
+        Intent appOnSuccess(String email, String password);
+        boolean validLoginCheck(String inputEmail, String inputPassword);
     }
 }

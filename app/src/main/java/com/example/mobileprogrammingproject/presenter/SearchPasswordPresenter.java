@@ -28,7 +28,7 @@ public class SearchPasswordPresenter implements SearchPasswordContract.Presenter
     @Override
     public void sendGmail(String recipients) {
         if(emailDuplicateCheck(false, recipients)==true) {
-            String findPassword = mAppDatabase.userDao().findPasswordByEmail(recipients);
+            String findPassword = mAppDatabase.userDao().findPasswordByEmail(recipients, ESearchPasswordPresenter.emailAppType.getText());
             try {
                 GMailSender sender = new GMailSender(ESearchPasswordPresenter.user.getText(), ESearchPasswordPresenter.password.getText());
                 sender.sendMail(ESearchPasswordPresenter.mailTitle.getText(),
@@ -47,13 +47,8 @@ public class SearchPasswordPresenter implements SearchPasswordContract.Presenter
         if(validEmailCheck(recipients)==false){
             return false;
         } else if(validEmailCheck(recipients)==true){
-            List<String> allEmail = mAppDatabase.userDao().findAllEmail();
-            for (String email : allEmail) {
-                if (email.equals(recipients)) {
-                    if (mAppDatabase.userDao().findTypeByEmail(email).equals(ESearchPasswordPresenter.emailAppType.getText())) {
-                        emailDuplicateResult = true;
-                    }
-                }
+            if (mAppDatabase.userDao().findByEmailAndType(recipients, Constants.ESearchPasswordPresenter.emailAppType.getText())!=null) {
+                emailDuplicateResult = true;
             }
             if (emailDuplicateResult == false) {
                 searchPasswordView.showToast(ESearchPasswordPresenter.notValidEmail.getText());

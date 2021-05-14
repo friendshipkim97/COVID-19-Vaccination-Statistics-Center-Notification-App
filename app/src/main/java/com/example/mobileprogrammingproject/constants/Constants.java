@@ -15,8 +15,18 @@ public class Constants {
         intentCheck("check"),
         intentCheckKakao("KAKAO"),
         intentCheckGoogle("GOOGLE"),
+        intentCheckApp("app"),
         intentResultEmail("userEmail"),
-        intentResultPassword("userPassword");
+        intentResultPassword("userPassword"),
+        passwordError("비밀번호가 틀렸습니다."),
+        appLoginSuccess("로그인을 성공했습니다."),
+        typeError("로그인을 해주세요."),
+        notValidEmail("존재하지 않는 이메일입니다."),
+        kakaoLoginSuccess("카카오 로그인 성공했습니다."),
+        kakaoSignUpMessage("카카오로 회원가입 했습니다."),
+        googleLoginSuccess("구글 로그인 성공했습니다."),
+        googleSignUpMessage("구글로 회원가입 했습니다.");
+
 
         private String text;
         private ELogin(String text){
@@ -49,7 +59,8 @@ public class Constants {
         noMatchingEmail("일치하는 이메일이 없습니다."),
         inputName("이름을 입력해주세요."),
         notificationMessage1("찾고자 하는 이메일은 "),
-        notificationMessage2("입니다.");
+        notificationMessage2("입니다."),
+        emailAppType("app");
 
 
         private String text;

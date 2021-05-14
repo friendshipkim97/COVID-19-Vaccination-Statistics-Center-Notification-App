@@ -7,7 +7,7 @@
     tools:context=".view.LoginActivity">
 
     <com.kakao.usermgmt.LoginButton
-        android:id="@+id/loginButton"
+        android:id="@+id/btn_kakaoLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -15,11 +15,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_google" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_googleLogin" />
 
 
     <com.google.android.gms.common.SignInButton
-        android:id="@+id/btn_google"
+        android:id="@+id/btn_googleLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -66,7 +66,7 @@
         app:layout_constraintEnd_toStartOf="@+id/tv_searchPassword"
         app:layout_constraintHorizontal_bias="0.34"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_appLogin" />
 
     <TextView
         android:id="@+id/tv_searchPassword"
@@ -77,7 +77,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/tv_signUp"
         app:layout_constraintStart_toEndOf="@+id/tv_searchEmail"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_appLogin" />
 
     <TextView
         android:id="@+id/tv_signUp"
@@ -88,10 +88,10 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_searchPassword"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_appLogin" />
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_appLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

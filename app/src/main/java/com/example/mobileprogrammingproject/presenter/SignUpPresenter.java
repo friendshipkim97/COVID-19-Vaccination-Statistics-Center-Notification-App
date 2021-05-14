@@ -30,31 +30,51 @@ public class SignUpPresenter implements SignUpContract.Presenter{
         this.context = getApplicationContext;
     }
 
-    public boolean emailDuplicateCheck(Boolean buttonIsClicked){
-        boolean emailDuplicateResult = false;
-        if(validEmailCheck()==false){
-            return false;
-        } else if(validEmailCheck()==true){
-            String inputEmail = mBinding.etEmailSignUp.getText().toString();
-            List<String> allEmail = mAppDatabase.userDao().findAllEmail();
-            for (String email : allEmail) {
-                if (email.equals(inputEmail)) {
-                    if (mAppDatabase.userDao().findTypeByEmail(email).equals(ESignUp.emailAppType.getText())) {
-                        emailDuplicateResult = true;
-                        signUpView.showToast(ESignUp.emailDuplicateMessage.getText());
-                    }
-                }
-            }
-            if (emailDuplicateResult == false) {
-                if(buttonIsClicked == true) {
-                    signUpView.showToast(ESignUp.emailNonDuplicateMessage.getText());
-                } else{
-                    return emailDuplicateResult;
-                }
+//    public boolean emailDuplicateCheck(Boolean buttonIsClicked){
+//        boolean emailDuplicateResult = false;
+//        if(validEmailCheck()==false){
+//            return false;
+//        } else if(validEmailCheck()==true){
+//            String inputEmail = mBinding.etEmailSignUp.getText().toString();
+//            List<String> allEmail = mAppDatabase.userDao().findAllEmail();
+//            for (String email : allEmail) {
+//                if (email.equals(inputEmail)) {
+//                    if (mAppDatabase.userDao().findTypeByEmail(email).equals(ESignUp.emailAppType.getText())) {
+//                        emailDuplicateResult = true;
+//                        signUpView.showToast(ESignUp.emailDuplicateMessage.getText());
+//                    }
+//                }
+//            }
+//            if (emailDuplicateResult == false) {
+//                if(buttonIsClicked == true) {
+//                    signUpView.showToast(ESignUp.emailNonDuplicateMessage.getText());
+//                } else{
+//                    return emailDuplicateResult;
+//                }
+//            }
+//        }
+//        return emailDuplicateResult;
+//    }
+public boolean emailDuplicateCheck(Boolean buttonIsClicked){
+    boolean emailDuplicateResult = false;
+    if(validEmailCheck()==false){
+        return false;
+    } else if(validEmailCheck()==true){
+        String inputEmail = mBinding.etEmailSignUp.getText().toString();
+        if (mAppDatabase.userDao().findByEmailAndType(inputEmail, ESignUp.emailAppType.getText())!=null) {
+            emailDuplicateResult = true;
+            signUpView.showToast(ESignUp.emailDuplicateMessage.getText());
+        }
+        if (emailDuplicateResult == false) {
+            if(buttonIsClicked == true) {
+                signUpView.showToast(ESignUp.emailNonDuplicateMessage.getText());
+            } else{
+                return emailDuplicateResult;
             }
         }
-        return emailDuplicateResult;
     }
+    return emailDuplicateResult;
+}
 
     public Intent signUpCheck() {
 
