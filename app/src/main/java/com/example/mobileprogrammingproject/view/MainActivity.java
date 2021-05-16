@@ -2,26 +2,30 @@ package com.example.mobileprogrammingproject.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.bumptech.glide.Glide;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import com.example.mobileprogrammingproject.R;
 import com.example.mobileprogrammingproject.databinding.ActivityMainBinding;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.firebase.auth.FirebaseAuth;
-import com.kakao.usermgmt.UserManagement;
-import com.kakao.usermgmt.callback.LogoutResponseCallback;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
     // Attributes
     private ActivityMainBinding mBinding;
-    private String strNick, strProfileImg, strEmail;
-    private LoginStatus loginStatus;
-    private GoogleSignInClient googleSignInClient;
-
-    enum LoginStatus{KAKAO, GOOGLE, APP}
+    private String strNick, strProfileImg, strEmail, strEmailType;
+    private FragmentManager fm;
+    private FragmentTransaction ft;
+    private MenuFragment menuFragment;
+    private SearchFragment searchFragment;
+    private HomeFragment homeFragment;
+    private MyPageFragment myPageFragment;
+    private SettingFragment settingFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,46 +38,73 @@ public class MainActivity extends AppCompatActivity {
         strNick = intent.getStringExtra("name");
         strEmail = intent.getStringExtra("email");
         strProfileImg = intent.getStringExtra("profileImg");
-        mBinding.tvCompletedNickName.setText(strNick);
-        mBinding.tvCompletedEmail.setText(strEmail);
-        Glide.with(this).load(strProfileImg).into(mBinding.ivCompletedImageView);
+        strEmailType = intent.getStringExtra("check");
 
-        if(intent.getStringExtra("check").equals(String.valueOf(loginStatus.KAKAO))){
-            kakaoInfoSet(intent);
-        } else if(intent.getStringExtra("check").equals(String.valueOf(loginStatus.GOOGLE))){
-            googleInfoSet(intent);
+        mBinding.bottomNavi.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+                    case R.id.action_menu:
+                        setFrag(0);
+                        break;
+                    case R.id.action_search:
+                        setFrag(1);
+                        break;
+                    case R.id.action_home:
+                        setFrag(2);
+                        break;
+                    case R.id.action_myPage:
+                        setFrag(3);
+                        break;
+                    case R.id.action_setting:
+                        setFrag(4);
+                        break;
+                }
+                return true;
+            }
+        });
+        menuFragment = new MenuFragment();
+        searchFragment = new SearchFragment();
+        homeFragment = new HomeFragment();
+        myPageFragment = new MyPageFragment();
+        settingFragment = new SettingFragment();
+        setFrag(2); // 첫 프래그먼트 화면을 무엇으로 지정해줄 것인지 선택
+    }
+
+    // 프래그먼트 교체가 일어나는 실행문이다, 총 5개의 fragment 교체
+    private void setFrag(int n){
+        fm = getSupportFragmentManager();
+        ft = fm.beginTransaction();
+        switch (n){
+            case 0:
+                ft.replace(R.id.frame_frag, menuFragment);
+                ft.commit();
+                break;
+            case 1:
+                ft.replace(R.id.frame_frag, searchFragment);
+                ft.commit();
+                break;
+            case 2:
+                ft.replace(R.id.frame_frag, homeFragment);
+                ft.commit();
+                break;
+            case 3:
+                ft.replace(R.id.frame_frag, myPageFragment);
+                Bundle bundle = new Bundle();
+                bundle.putString("strNick", strNick);
+                bundle.putString("strEmail", strEmail);
+                bundle.putString("strProfileImg", strProfileImg);
+                bundle.putString("strEmailType", strEmailType);
+                myPageFragment.setArguments(bundle);
+                ft.commit();
+                break;
+            case 4:
+                ft.replace(R.id.frame_frag, settingFragment);
+                ft.commit();
+                break;
         }
-
     }
 
-    private void kakaoInfoSet(Intent intent) {
 
-        mBinding.btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
-                    @Override
-                    public void onCompleteLogout() {
-                        // 로그아웃 성공시 수행하는 지점
-                        finish(); // 현재 액티비티 종료
-                    }
-                });
-            }
-        });
-    }
-
-    private void googleInfoSet(Intent intent) {
-
-        mBinding.btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                FirebaseAuth mAuth = FirebaseAuth.getInstance();
-                mAuth.signOut();
-//                clearApplicationData();
-               finish();
-            }
-        });
-    }
 
 }

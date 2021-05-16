@@ -15,7 +15,7 @@ public class Constants {
         intentCheck("check"),
         intentCheckKakao("KAKAO"),
         intentCheckGoogle("GOOGLE"),
-        intentCheckApp("app"),
+        intentCheckApp("APP"),
         intentResultEmail("userEmail"),
         intentResultPassword("userPassword"),
         passwordError("비밀번호가 틀렸습니다."),
@@ -60,7 +60,7 @@ public class Constants {
         inputName("이름을 입력해주세요."),
         notificationMessage1("찾고자 하는 이메일은 "),
         notificationMessage2("입니다."),
-        emailAppType("app");
+        emailAppType("APP");
 
 
         private String text;
@@ -83,7 +83,7 @@ public class Constants {
         completedSendMail("이메일로 비밀번호를 전송했습니다."),
         emailFormatErrorMessage("이메일을 알맞은 형태로 입력해주세요."),
         emailLetterCountError("이메일을 10~20자로 입력해주세요."),
-        emailAppType("app"),
+        emailAppType("APP"),
         emailFormat("\\w+@\\w+\\.\\w+(\\.\\w+)?");
 
 
@@ -116,7 +116,7 @@ public class Constants {
         dpYear("년"),
         dpMonth("월"),
         dpDay("일"),
-        emailAppType("app"),
+        emailAppType("APP"),
         userEmail("userEmail"),
         userPassword("userPassword");
 
