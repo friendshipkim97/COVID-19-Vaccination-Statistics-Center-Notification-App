@@ -6,18 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mobileprogrammingproject.R;
-import com.example.mobileprogrammingproject.dao.AppDatabase;
+import com.example.mobileprogrammingproject.database.AppDatabase;
 import com.example.mobileprogrammingproject.databinding.ActivityLoginBinding;
 import com.example.mobileprogrammingproject.presenter.LoginContract;
 import com.example.mobileprogrammingproject.presenter.LoginPresenter;
-import com.example.mobileprogrammingproject.presenter.SignUpContract;
-import com.example.mobileprogrammingproject.valueObject.VUser;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -77,7 +74,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         // init
         apiInit();
         init();
-
     }
 
     private void apiInit() {

@@ -3,15 +3,13 @@ package com.example.mobileprogrammingproject.presenter;
 import android.content.Context;
 import android.content.Intent;
 
-import com.example.mobileprogrammingproject.dao.AppDatabase;
+import com.example.mobileprogrammingproject.database.AppDatabase;
 import com.example.mobileprogrammingproject.constants.Constants.ESignUp;
 import com.example.mobileprogrammingproject.databinding.ActivitySignUpBinding;
 import com.example.mobileprogrammingproject.model.User;
 import com.example.mobileprogrammingproject.valueObject.VUser;
 import com.example.mobileprogrammingproject.view.LoginActivity;
-import com.example.mobileprogrammingproject.view.SignUpActivity;
 
-import java.util.List;
 import java.util.regex.Pattern;
 
 public class SignUpPresenter implements SignUpContract.Presenter{

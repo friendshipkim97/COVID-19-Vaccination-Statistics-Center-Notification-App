@@ -11,8 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mobileprogrammingproject.R;
-import com.example.mobileprogrammingproject.constants.Constants;
-import com.example.mobileprogrammingproject.dao.AppDatabase;
+import com.example.mobileprogrammingproject.database.AppDatabase;
 import com.example.mobileprogrammingproject.databinding.SearchEmailChildListViewBinding;
 import com.example.mobileprogrammingproject.model.User;
 import com.example.mobileprogrammingproject.presenter.SearchEmailContract;

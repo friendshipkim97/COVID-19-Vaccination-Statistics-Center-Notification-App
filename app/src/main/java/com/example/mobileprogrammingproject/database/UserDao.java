@@ -1,4 +1,4 @@
-package com.example.mobileprogrammingproject.dao;
+package com.example.mobileprogrammingproject.database;
 
 import androidx.room.Dao;
 import androidx.room.Delete;

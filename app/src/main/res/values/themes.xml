@@ -13,36 +13,46 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-<!--    </style>-->
-<!--    <style name="BmjuaTextViewStyle" parent="@android:style/Widget.DeviceDefault.TextView">-->
-<!--        <item name="android:fontFamily">@font/bmjua_ttf</item>-->
-<!--    </style>-->
-<!--    <style name="BmjuaButtonStyle" parent="@android:style/Widget.DeviceDefault.Button.Borderless">-->
-<!--        <item name="android:fontFamily">@font/bmjua_ttf</item>-->
-<!--    </style>-->
-<!--    <style name="BmjuaEditTextStyle" parent="@android:style/Widget.DeviceDefault.EditText">-->
-<!--        <item name="android:fontFamily">@font/bmjua_ttf</item>-->
-<!--    </style>-->
-<!--    <style name="BmjuaRadioButtonStyle" parent="@android:style/Widget.DeviceDefault.CompoundButton.RadioButton">-->
-<!--        <item name="android:fontFamily">@font/bmjua_ttf</item>-->
-<!--    </style>-->
-<!--    <style name="BmjuaCheckboxStyle" parent="@android:style/Widget.DeviceDefault.CompoundButton.CheckBox">-->
-<!--        <item name="android:fontFamily">@font/bmjua_ttf</item>-->
-<!--    </style>-->
+        <!--    </style>-->
+        <!--    <style name="BmjuaTextViewStyle" parent="@android:style/Widget.DeviceDefault.TextView">-->
+        <!--        <item name="android:fontFamily">@font/bmjua_ttf</item>-->
+        <!--    </style>-->
+        <!--    <style name="BmjuaButtonStyle" parent="@android:style/Widget.DeviceDefault.Button.Borderless">-->
+        <!--        <item name="android:fontFamily">@font/bmjua_ttf</item>-->
+        <!--    </style>-->
+        <!--    <style name="BmjuaEditTextStyle" parent="@android:style/Widget.DeviceDefault.EditText">-->
+        <!--        <item name="android:fontFamily">@font/bmjua_ttf</item>-->
+        <!--    </style>-->
+        <!--    <style name="BmjuaRadioButtonStyle" parent="@android:style/Widget.DeviceDefault.CompoundButton.RadioButton">-->
+        <!--        <item name="android:fontFamily">@font/bmjua_ttf</item>-->
+        <!--    </style>-->
+        <!--    <style name="BmjuaCheckboxStyle" parent="@android:style/Widget.DeviceDefault.CompoundButton.CheckBox">-->
+        <!--        <item name="android:fontFamily">@font/bmjua_ttf</item>-->
+        <!--    </style>-->
 
-<!--    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">-->
-<!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
-<!--        <item name="colorPrimary">@color/colorPrimary</item>-->
-<!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
-<!--        <item name="colorAccent">@color/colorAccent</item>-->
-<!--        <item name="android:buttonStyle">@style/BmjuaTextViewStyle</item>-->
-<!--        <item name="android:editTextStyle">@style/BmjuaButtonStyle</item>-->
-<!--        <item name="android:radioButtonStyle">@style/BmjuaEditTextStyle</item>-->
-<!--        <item name="android:checkboxStyle">@style/BmjuaRadioButtonStyle</item>-->
-<!--        <item name="android:textViewStyle">@style/BmjuaCheckboxStyle</item>-->
+        <!--    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">-->
+        <!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+        <!--        <item name="colorPrimary">@color/colorPrimary</item>-->
+        <!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <!--        <item name="colorAccent">@color/colorAccent</item>-->
+        <!--        <item name="android:buttonStyle">@style/BmjuaTextViewStyle</item>-->
+        <!--        <item name="android:editTextStyle">@style/BmjuaButtonStyle</item>-->
+        <!--        <item name="android:radioButtonStyle">@style/BmjuaEditTextStyle</item>-->
+        <!--        <item name="android:checkboxStyle">@style/BmjuaRadioButtonStyle</item>-->
+        <!--        <item name="android:textViewStyle">@style/BmjuaCheckboxStyle</item>-->
     </style>
+
     <style name="CustomRadioButton" parent="Theme.AppCompat.Light">
         <item name="colorAccent">#000000</item>
         <item name="colorControlNormal">#000000</item>
     </style>
+
+    <style name="Theme.MobileProgrammingProject.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MobileProgrammingProject.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MobileProgrammingProject.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

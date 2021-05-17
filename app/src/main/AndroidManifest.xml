@@ -13,10 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileProgrammingProject"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.SearchPasswordActivity"></activity>
-        <activity android:name=".view.SearchEmailActivity"></activity>
-        <activity
-            android:name=".view.SignUpActivity"></activity>
+        <activity android:name=".view.CheckPasswordFragment"></activity>
+        <activity android:name=".view.QNACheckFragment" />
+        <activity android:name=".view.QNAWriteFragment" />
+        <activity android:name=".view.SearchPasswordActivity" />
+        <activity android:name=".view.SearchEmailActivity" />
+        <activity android:name=".view.SignUpActivity" />
         <activity android:name=".view.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

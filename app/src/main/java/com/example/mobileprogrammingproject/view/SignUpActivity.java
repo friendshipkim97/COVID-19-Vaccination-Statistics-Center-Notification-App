@@ -6,20 +6,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.mobileprogrammingproject.dao.AppDatabase;
+import com.example.mobileprogrammingproject.database.AppDatabase;
 import com.example.mobileprogrammingproject.R;
 import com.example.mobileprogrammingproject.databinding.ActivitySignUpBinding;
 import com.example.mobileprogrammingproject.presenter.SignUpContract;
 import com.example.mobileprogrammingproject.presenter.SignUpPresenter;
-import com.example.mobileprogrammingproject.valueObject.VUser;
-import com.example.mobileprogrammingproject.constants.Constants.ESignUp;
 
 public class SignUpActivity extends AppCompatActivity implements SignUpContract.View {
 

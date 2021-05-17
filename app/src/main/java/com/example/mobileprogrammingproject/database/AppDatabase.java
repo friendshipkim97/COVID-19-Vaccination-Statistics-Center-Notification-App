@@ -1,4 +1,4 @@
-package com.example.mobileprogrammingproject.dao;
+package com.example.mobileprogrammingproject.database;
 
 import android.content.Context;
 

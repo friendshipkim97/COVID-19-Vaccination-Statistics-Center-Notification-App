@@ -6,15 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.mobileprogrammingproject.dao.AppDatabase;
-import com.example.mobileprogrammingproject.gMailSender.GMailSender;
+import com.example.mobileprogrammingproject.database.AppDatabase;
 import com.example.mobileprogrammingproject.R;
 import com.example.mobileprogrammingproject.databinding.ActivitySearchPasswordBinding;
 import com.example.mobileprogrammingproject.presenter.SearchPasswordContract;

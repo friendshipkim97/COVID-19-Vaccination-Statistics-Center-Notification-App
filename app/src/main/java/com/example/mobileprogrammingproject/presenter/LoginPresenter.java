@@ -2,19 +2,14 @@ package com.example.mobileprogrammingproject.presenter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 
-import com.example.mobileprogrammingproject.constants.Constants;
-import com.example.mobileprogrammingproject.dao.AppDatabase;
+import com.example.mobileprogrammingproject.database.AppDatabase;
 import com.example.mobileprogrammingproject.model.User;
 import com.example.mobileprogrammingproject.valueObject.VUser;
-import com.example.mobileprogrammingproject.view.LoginActivity;
 import com.example.mobileprogrammingproject.view.MainActivity;
 import com.google.firebase.auth.FirebaseUser;
 import com.kakao.usermgmt.response.MeV2Response;
 import com.example.mobileprogrammingproject.constants.Constants.ELogin;
-
-import java.util.List;
 
 public class LoginPresenter implements LoginContract.Presenter{
 

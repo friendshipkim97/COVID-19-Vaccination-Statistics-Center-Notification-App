@@ -3,12 +3,11 @@ package com.example.mobileprogrammingproject.presenter;
 import android.util.Log;
 
 import com.example.mobileprogrammingproject.constants.Constants;
-import com.example.mobileprogrammingproject.dao.AppDatabase;
+import com.example.mobileprogrammingproject.database.AppDatabase;
 import com.example.mobileprogrammingproject.databinding.ActivitySearchPasswordBinding;
 import com.example.mobileprogrammingproject.gMailSender.GMailSender;
 import com.example.mobileprogrammingproject.constants.Constants.ESearchPasswordPresenter;
 
-import java.util.List;
 import java.util.regex.Pattern;
 
 public class SearchPasswordPresenter implements SearchPasswordContract.Presenter{

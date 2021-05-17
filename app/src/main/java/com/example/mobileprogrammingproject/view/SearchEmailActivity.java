@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.mobileprogrammingproject.dao.AppDatabase;
+import com.example.mobileprogrammingproject.database.AppDatabase;
 import com.example.mobileprogrammingproject.adapter.SearchEmailCustomAdapter;
 import com.example.mobileprogrammingproject.R;
 import com.example.mobileprogrammingproject.valueObject.VSearchEmailChild;

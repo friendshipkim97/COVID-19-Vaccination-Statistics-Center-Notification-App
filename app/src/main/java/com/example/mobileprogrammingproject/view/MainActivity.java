@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -25,76 +26,49 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Attributes
+    // main Attributes
     private ActivityMainBinding mBinding;
     private String strNick, strProfileImg, strEmail, strEmailType;
-    private FragmentManager fm;
-    private FragmentTransaction ft;
-    private MenuFragment menuFragment;
     private SearchFragment searchFragment;
     private HomeFragment homeFragment;
     private MyPageFragment myPageFragment;
     private SettingFragment settingFragment;
 
+    // drawer Attributes
     private DrawerLayout drawerLayout;
     private View drawerView;
     private Button btn_close;
     private ImageView profileImg;
     private TextView tv_name, tv_email;
+    private TextView tv_exam1, tv_exam2, tv_exam3, tv_exam4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // set Binding
         mBinding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = mBinding.getRoot();
         setContentView(view);
 
+        // get Contents
         Intent intent = getIntent();
         strNick = intent.getStringExtra("name");
         strEmail = intent.getStringExtra("email");
         strProfileImg = intent.getStringExtra("profileImg");
         strEmailType = intent.getStringExtra("check");
 
-        viewInit();
+        navigationBarInit();
+        drawerInit();
+        actionbarInit();
+        mainInit();
 
-        btn_close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "열림", Toast.LENGTH_SHORT).show();
-                drawerLayout.closeDrawers();
-            }
-        });
-        DrawerLayout.DrawerListener listener = new DrawerLayout.DrawerListener() {
-            @Override
-            public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
+    }
 
-            }
-
-            @Override
-            public void onDrawerOpened(@NonNull View drawerView) {
-
-            }
-
-            @Override
-            public void onDrawerClosed(@NonNull View drawerView) {
-
-            }
-
-            @Override
-            public void onDrawerStateChanged(int newState) {
-
-            }
-        };
-
-        drawerLayout.setDrawerListener(listener);
-        drawerView.setOnTouchListener(new View.OnTouchListener() {
-
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                return true;
-            }
-        });
-
+    private void navigationBarInit() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.frame_frag, HomeFragment.newInstance()).commit();
+        mBinding.bottomNavi.setSelectedItemId(R.id.action_home);
 
         mBinding.bottomNavi.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -119,61 +93,119 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        menuFragment = new MenuFragment();
-        searchFragment = new SearchFragment();
-        homeFragment = new HomeFragment();
-        myPageFragment = new MyPageFragment();
-        settingFragment = new SettingFragment();
-        setFrag(2); // 첫 프래그먼트 화면을 무엇으로 지정해줄 것인지 선택
     }
 
-    private void viewInit() {
+    private void actionbarInit() {
+    }
+
+    private void drawerInit() {
         drawerLayout = findViewById(R.id.drawer_layout);
         drawerView = findViewById(R.id.drawer);
         btn_close = findViewById(R.id.btn_close);
         profileImg = findViewById(R.id.iv_profile);
         tv_name = findViewById(R.id.tv_nickName);
         tv_email = findViewById(R.id.tv_email);
+        tv_exam1 = findViewById(R.id.tv_exam1);
+        tv_exam2 = findViewById(R.id.tv_exam2);
+        tv_exam3 = findViewById(R.id.tv_exam3);
+        tv_exam4 = findViewById(R.id.tv_exam4);
 
         Glide.with(this).load(strProfileImg).override(300,300).into(profileImg);
         tv_name.setText(strNick);
         tv_email.setText(strEmail);
+
+        DrawerLayout.DrawerListener listener = new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(@NonNull View drawerView, float slideOffset) { }
+            @Override
+            public void onDrawerOpened(@NonNull View drawerView) { }
+            @Override
+            public void onDrawerClosed(@NonNull View drawerView) { }
+            @Override
+            public void onDrawerStateChanged(int newState) { }
+        };
+
+        drawerLayout.setDrawerListener(listener);
+        drawerView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return true;
+            }
+        });
+
+        tv_exam1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(tv_exam2.getVisibility()==View.VISIBLE){
+                    tv_exam2.setVisibility(View.GONE);
+                }
+                else{
+                    tv_exam2.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        tv_exam3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(tv_exam4.getVisibility()==View.VISIBLE){
+                    tv_exam4.setVisibility(View.GONE);
+                }
+                else{
+                    tv_exam4.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        btn_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawerLayout.closeDrawers();
+            }
+        });
     }
 
-    // 프래그먼트 교체가 일어나는 실행문이다, 총 5개의 fragment 교체
+    private void mainInit() {
+
+        searchFragment = new SearchFragment();
+        homeFragment = new HomeFragment();
+        myPageFragment = new MyPageFragment();
+        settingFragment = new SettingFragment();
+    }
+
     private void setFrag(int n){
-        fm = getSupportFragmentManager();
-        ft = fm.beginTransaction();
         switch (n){
             case 0:
-                ft.replace(R.id.frame_frag, menuFragment);
-                ft.commit();
                 break;
             case 1:
-                ft.replace(R.id.frame_frag, searchFragment);
-                ft.commit();
+                replaceFragment(searchFragment);
                 break;
             case 2:
-                ft.replace(R.id.frame_frag, homeFragment);
-                ft.commit();
+                replaceFragment(homeFragment);
                 break;
             case 3:
-                ft.replace(R.id.frame_frag, myPageFragment);
-                Bundle bundle = new Bundle();
-                bundle.putString("strNick", strNick);
-                bundle.putString("strEmail", strEmail);
-                bundle.putString("strProfileImg", strProfileImg);
-                bundle.putString("strEmailType", strEmailType);
-                myPageFragment.setArguments(bundle);
-                ft.commit();
+                myPageFragment.setArguments(setPersonalBundleInfo());
+                replaceFragment(myPageFragment);
                 break;
             case 4:
-                ft.replace(R.id.frame_frag, settingFragment);
-                ft.commit();
+                replaceFragment(settingFragment);
                 break;
         }
     }
 
+    private Bundle setPersonalBundleInfo() {
+        Bundle bundle = new Bundle();
+        bundle.putString("strNick", strNick);
+        bundle.putString("strEmail", strEmail);
+        bundle.putString("strProfileImg", strProfileImg);
+        bundle.putString("strEmailType", strEmailType);
+        return bundle;
+    }
 
+    public void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_frag, fragment).commit();
+    }
 
 }

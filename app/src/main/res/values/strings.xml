@@ -37,5 +37,14 @@
     <string name="signUpTextFullAgreement">전체동의</string>
     <string name="signUpTextTermsOfServiceAgreement">(필수) 이용약관동의</string>
     <string name="signUpTextPrivacyAgreement">(필수) 개인정보수집 및 이용 동의</string>
+    <string name="title_activity_qn_a">QnAActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>
 
