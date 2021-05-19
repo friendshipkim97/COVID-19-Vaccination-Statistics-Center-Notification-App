@@ -14,16 +14,23 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.mobileprogrammingproject.R;
+import com.example.mobileprogrammingproject.database.AppDatabase;
 import com.example.mobileprogrammingproject.databinding.FragmentQNAWriteBinding;
+import com.example.mobileprogrammingproject.presenter.QnAWriteContract;
+import com.example.mobileprogrammingproject.presenter.QnAWritePresenter;
+import com.example.mobileprogrammingproject.presenter.SearchEmailContract;
 
-public class QNAWriteFragment extends Fragment {
+public class QNAWriteFragment extends Fragment implements QnAWriteContract.View {
 
     private View view;
     private FragmentQNAWriteBinding mBinding;
     private Context context;
     private String strNick, strProfileImg, strEmail, strEmailType;
+    private QnAWriteContract.Presenter qnaPresenter;
+    private AppDatabase mAppDatabase;
 
     @Nullable
     @Override
@@ -32,6 +39,11 @@ public class QNAWriteFragment extends Fragment {
         context = container.getContext();
         View view = mBinding.getRoot();
 
+        // set Database
+        mAppDatabase = AppDatabase.getInstance(context.getApplicationContext());
+
+        qnaPresenter = new QnAWritePresenter(mAppDatabase, mBinding, this);
+
         Bundle bundle = getArguments();
         strNick = bundle.getString("strNick");
         strProfileImg = bundle.getString("strProfileImg");
@@ -39,9 +51,20 @@ public class QNAWriteFragment extends Fragment {
         strEmailType = bundle.getString("strEmailType");
 
         initToolbar();
+        init();
         setHasOptionsMenu(true);
 
         return view;
+    }
+
+    private void init() {
+        mBinding.tvQnaWriteEmail.setText(strEmail);
+        mBinding.btnQnaWriteSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                qnaPresenter.submit(strEmail, strEmailType);
+            }
+        });
     }
 
     public static QNAWriteFragment newInstance() {
@@ -85,5 +108,10 @@ public class QNAWriteFragment extends Fragment {
         bundle.putString("strProfileImg", strProfileImg);
         bundle.putString("strEmailType", strEmailType);
         return bundle;
+    }
+
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(context.getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
 }
