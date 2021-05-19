@@ -83,7 +83,7 @@ public class SearchEmailCustomAdapter extends RecyclerView.Adapter<SearchEmailCu
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
             this.et_recycle1 = itemView.findViewById(R.id.et_searchEmailChild1);
-            this.et_recycle2 = itemView.findViewById(R.id.et_searchEmailChild2);
+            this.et_recycle2 = itemView.findViewById(R.id.tv_qnatitle);
             this.btn_recycle3 = itemView.findViewById(R.id.btn_searchEmailChild);
 
         }

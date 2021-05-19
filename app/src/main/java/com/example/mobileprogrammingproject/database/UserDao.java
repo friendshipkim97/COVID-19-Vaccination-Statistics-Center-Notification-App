@@ -40,6 +40,9 @@ public interface UserDao {
     @Query("SELECT * FROM User where email=(:email) and emailType=(:emailType)")
     User findByEmailAndType(String email, String emailType);
 
+    @Query("SELECT id FROM User where email=(:email) and emailType=(:emailType)")
+    int findIdByEmailAndType(String email, String emailType);
+
     @Insert
     void insert(User user);
 

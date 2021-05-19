@@ -82,6 +82,15 @@ public class MyPageFragment extends Fragment {
             }
         });
 
+        mBinding.btnQnaCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                QNACheckFragment qnaCheckFragment = QNACheckFragment.newInstance();
+                qnaCheckFragment.setArguments(setPersonalBundleInfo());
+                replaceFragment(qnaCheckFragment);
+            }
+        });
+
     }
 
     private void initLoginInfo() {
