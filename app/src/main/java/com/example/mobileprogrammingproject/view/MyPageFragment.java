@@ -61,7 +61,6 @@ public class MyPageFragment extends Fragment {
         mBinding = FragmentMyPageBinding.inflate(getLayoutInflater());
         context = container.getContext();
         View view = mBinding.getRoot();
-
         // set Toolbar
         init();
         initToolbar();
