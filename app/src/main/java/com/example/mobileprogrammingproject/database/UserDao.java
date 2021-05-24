@@ -31,7 +31,7 @@ public interface UserDao {
     @Query("SELECT password FROM User where email=(:email) and emailType=(:emailType)")
     String findPasswordByEmail(String email, String emailType);
 
-    @Query("SELECT email FROM User where email=(:email)")
+    @Query("SELECT name FROM User where email=(:email)")
     String findNameByEmail(String email);
 
     @Query("SELECT * FROM User where email=(:email) and emailType=(:emailType)")
@@ -42,6 +42,9 @@ public interface UserDao {
 
     @Query("SELECT id FROM User where email=(:email) and emailType=(:emailType)")
     int findIdByEmailAndType(String email, String emailType);
+
+    @Query("UPDATE User set password=(:password), name=(:name), dateOfBirth=(:dateOfBirth), phoneNumber=(:phoneNumber), gender=(:gender) where id=(:id)")
+    void updatePersonalInfoById(int id, String password, String name, String dateOfBirth, String phoneNumber, String gender);
 
     @Insert
     void insert(User user);

@@ -14,7 +14,7 @@ import com.example.mobileprogrammingproject.R;
 import com.example.mobileprogrammingproject.database.AppDatabase;
 import com.example.mobileprogrammingproject.databinding.SearchEmailChildListViewBinding;
 import com.example.mobileprogrammingproject.model.User;
-import com.example.mobileprogrammingproject.presenter.SearchEmailContract;
+import com.example.mobileprogrammingproject.contract.SearchEmailContract;
 import com.example.mobileprogrammingproject.valueObject.VSearchEmailChild;
 import com.example.mobileprogrammingproject.constants.Constants.ESearchEmailCustomAdapter;
 

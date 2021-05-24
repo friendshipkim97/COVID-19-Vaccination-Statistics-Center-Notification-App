@@ -3,6 +3,7 @@ package com.example.mobileprogrammingproject.presenter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mobileprogrammingproject.constants.Constants.ESearchEmail;
+import com.example.mobileprogrammingproject.contract.SearchEmailContract;
 import com.example.mobileprogrammingproject.database.AppDatabase;
 import com.example.mobileprogrammingproject.valueObject.VSearchEmailChild;
 import com.example.mobileprogrammingproject.databinding.ActivitySearchEmailBinding;

@@ -3,6 +3,7 @@ package com.example.mobileprogrammingproject.presenter;
 import android.content.Context;
 import android.content.Intent;
 
+import com.example.mobileprogrammingproject.contract.SignUpContract;
 import com.example.mobileprogrammingproject.database.AppDatabase;
 import com.example.mobileprogrammingproject.constants.Constants.ESignUp;
 import com.example.mobileprogrammingproject.databinding.ActivitySignUpBinding;
@@ -28,7 +29,7 @@ public class SignUpPresenter implements SignUpContract.Presenter{
         this.context = getApplicationContext;
     }
 
-public boolean emailDuplicateCheck(Boolean buttonIsClicked){
+    public boolean emailDuplicateCheck(Boolean buttonIsClicked){
     boolean emailDuplicateResult = false;
     if(validEmailCheck()==false){
         return false;

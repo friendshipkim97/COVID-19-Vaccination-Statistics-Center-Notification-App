@@ -3,6 +3,7 @@ package com.example.mobileprogrammingproject.presenter;
 import android.util.Log;
 
 import com.example.mobileprogrammingproject.constants.Constants;
+import com.example.mobileprogrammingproject.contract.SearchPasswordContract;
 import com.example.mobileprogrammingproject.database.AppDatabase;
 import com.example.mobileprogrammingproject.databinding.ActivitySearchPasswordBinding;
 import com.example.mobileprogrammingproject.gMailSender.GMailSender;

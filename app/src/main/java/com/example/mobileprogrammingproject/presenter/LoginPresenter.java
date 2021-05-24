@@ -3,6 +3,7 @@ package com.example.mobileprogrammingproject.presenter;
 import android.content.Context;
 import android.content.Intent;
 
+import com.example.mobileprogrammingproject.contract.LoginContract;
 import com.example.mobileprogrammingproject.database.AppDatabase;
 import com.example.mobileprogrammingproject.model.User;
 import com.example.mobileprogrammingproject.valueObject.VUser;

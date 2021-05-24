@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.example.mobileprogrammingproject.database.AppDatabase;
 import com.example.mobileprogrammingproject.R;
 import com.example.mobileprogrammingproject.databinding.ActivitySearchPasswordBinding;
-import com.example.mobileprogrammingproject.presenter.SearchPasswordContract;
+import com.example.mobileprogrammingproject.contract.SearchPasswordContract;
 import com.example.mobileprogrammingproject.presenter.SearchPasswordPresenter;
 
 public class SearchPasswordActivity extends AppCompatActivity implements SearchPasswordContract.View{

@@ -5,9 +5,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,43 +24,43 @@ import android.widget.Toast;
 
 import com.example.mobileprogrammingproject.R;
 import com.example.mobileprogrammingproject.adapter.QNACustomAdapter;
+import com.example.mobileprogrammingproject.contract.ChangePersonalInformationContract;
+import com.example.mobileprogrammingproject.contract.SignUpContract;
 import com.example.mobileprogrammingproject.database.AppDatabase;
-import com.example.mobileprogrammingproject.databinding.FragmentQNACheckBinding;
-import com.example.mobileprogrammingproject.model.QnA;
+import com.example.mobileprogrammingproject.databinding.FragmentChangePersonalInformationBinding;
 import com.example.mobileprogrammingproject.contract.QnACheckContract;
+import com.example.mobileprogrammingproject.presenter.ChangePersonalPresenter;
 import com.example.mobileprogrammingproject.presenter.QnACheckPresenter;
 
-import java.util.ArrayList;
-
-public class QNACheckFragment extends Fragment implements QnACheckContract.View {
+public class ChangePersonalInformationFragment extends Fragment implements ChangePersonalInformationContract.View{
 
     private View view;
-    private FragmentQNACheckBinding mBinding;
+    private FragmentChangePersonalInformationBinding mBinding;
     private Context context;
     private String strNick, strProfileImg, strEmail, strEmailType;
-    private QnACheckContract.Presenter qnaPresenter;
+    private ChangePersonalInformationContract.Presenter presenter;
     private AppDatabase mAppDatabase;
+    private FragmentActivity fragmentContext;
 
-    // Recycler View
-    private QNACustomAdapter qnaCustomAdapter;
-    private RecyclerView recyclerView;
-    private LinearLayoutManager linearLayoutManager;
+    @Override
+    public void onAttach(@NonNull Activity activity) {
+        fragmentContext=(FragmentActivity) activity;
+        super.onAttach(activity);
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mBinding = FragmentQNACheckBinding.inflate(getLayoutInflater());
+        mBinding = FragmentChangePersonalInformationBinding.inflate(getLayoutInflater());
         context = container.getContext();
         View view = mBinding.getRoot();
 
         // set Database
         mAppDatabase = AppDatabase.getInstance(context.getApplicationContext());
 
-        qnaPresenter = new QnACheckPresenter(mAppDatabase, mBinding, this);
+        presenter = new ChangePersonalPresenter(this, mBinding, mAppDatabase, context);
 
         Bundle bundle = getArguments();
-        strNick = bundle.getString("strNick");
-        strProfileImg = bundle.getString("strProfileImg");
         strEmail = bundle.getString("strEmail");
         strEmailType = bundle.getString("strEmailType");
 
@@ -67,28 +71,26 @@ public class QNACheckFragment extends Fragment implements QnACheckContract.View 
         return view;
     }
 
-    public void init(){
-        mBinding.tvQnaCheckEmail.setText(strEmail);
-        ArrayList<QnA> arrayList = qnaPresenter.getData(strEmail, strEmailType);
+    public void init() {
+        mBinding.tvChangePersonalEmail.setText(strEmail);
 
-        // RecyclerView
-        recyclerView= mBinding.rvQnaCheck;
-        recyclerView.setHasFixedSize(true); // 리사이클러뷰 기존성능 강화
-        linearLayoutManager = new LinearLayoutManager(context);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        this.qnaCustomAdapter = new QNACustomAdapter(arrayList, context, strEmail);
-        recyclerView.setAdapter(qnaCustomAdapter);
+        mBinding.btnCompleteChangePersonal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Boolean changePersonalInfoCheck = presenter.changePersonalInformation(strEmail, strEmailType);
+                if(changePersonalInfoCheck == true){
+                    replaceFragment(HomeFragment.newInstance());
+                }
+            }
+        });
 
     }
 
-    public static QNACheckFragment newInstance() {
-        return new QNACheckFragment();
-    }
 
     // ToolBar Settings
     private void initToolbar() {
-        ((AppCompatActivity)getActivity()).setSupportActionBar(mBinding.tbQnaCheck);
-        ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
+        ((AppCompatActivity) getActivity()).setSupportActionBar(mBinding.tbChangePersonal);
+        ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setDisplayHomeAsUpEnabled(false);
@@ -127,5 +129,11 @@ public class QNACheckFragment extends Fragment implements QnACheckContract.View 
     @Override
     public void showToast(String message) {
         Toast.makeText(context.getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    public void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager = fragmentContext.getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_frag, fragment).commit();
     }
 }

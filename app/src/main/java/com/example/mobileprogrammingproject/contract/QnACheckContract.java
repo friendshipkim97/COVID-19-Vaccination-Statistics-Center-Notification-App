@@ -1,4 +1,4 @@
-package com.example.mobileprogrammingproject.presenter;
+package com.example.mobileprogrammingproject.contract;
 
 import com.example.mobileprogrammingproject.model.QnA;
 

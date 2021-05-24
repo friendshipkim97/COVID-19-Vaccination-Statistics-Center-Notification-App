@@ -19,9 +19,8 @@ import android.widget.Toast;
 import com.example.mobileprogrammingproject.R;
 import com.example.mobileprogrammingproject.database.AppDatabase;
 import com.example.mobileprogrammingproject.databinding.FragmentQNAWriteBinding;
-import com.example.mobileprogrammingproject.presenter.QnAWriteContract;
+import com.example.mobileprogrammingproject.contract.QnAWriteContract;
 import com.example.mobileprogrammingproject.presenter.QnAWritePresenter;
-import com.example.mobileprogrammingproject.presenter.SearchEmailContract;
 
 public class QNAWriteFragment extends Fragment implements QnAWriteContract.View {
 

@@ -1,4 +1,4 @@
-package com.example.mobileprogrammingproject.presenter;
+package com.example.mobileprogrammingproject.contract;
 
 public interface SearchEmailContract {
     interface View{

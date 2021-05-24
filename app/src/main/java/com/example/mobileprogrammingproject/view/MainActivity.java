@@ -22,6 +22,7 @@ import com.example.mobileprogrammingproject.R;
 import com.example.mobileprogrammingproject.databinding.ActivityMainBinding;
 import com.example.mobileprogrammingproject.databinding.ActivityMainDrawerBinding;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,10 +30,10 @@ public class MainActivity extends AppCompatActivity {
     // main Attributes
     private ActivityMainBinding mBinding;
     private String strNick, strProfileImg, strEmail, strEmailType;
-    private SearchFragment searchFragment;
-    private HomeFragment homeFragment;
-    private MyPageFragment myPageFragment;
-    private SettingFragment settingFragment;
+//    private SearchFragment searchFragment;
+//    private HomeFragment homeFragment;
+//    private MyPageFragment myPageFragment;
+//    private SettingFragment settingFragment;
 
     // drawer Attributes
     private DrawerLayout drawerLayout;
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         navigationBarInit();
         drawerInit();
         actionbarInit();
-        mainInit();
+//        mainInit();
 
     }
 
@@ -165,29 +166,33 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void mainInit() {
-
-        searchFragment = new SearchFragment();
-        homeFragment = new HomeFragment();
-        myPageFragment = new MyPageFragment();
-        settingFragment = new SettingFragment();
-    }
+//    private void mainInit() {
+//
+////        searchFragment = new SearchFragment();
+////        homeFragment = new HomeFragment();
+////        myPageFragment = new MyPageFragment();
+////        settingFragment = new SettingFragment();
+//    }
 
     private void setFrag(int n){
         switch (n){
             case 0:
                 break;
             case 1:
+                SearchFragment searchFragment = new SearchFragment();
                 replaceFragment(searchFragment);
                 break;
             case 2:
+                HomeFragment homeFragment = new HomeFragment();
                 replaceFragment(homeFragment);
                 break;
             case 3:
+                MyPageFragment myPageFragment = new MyPageFragment();
                 myPageFragment.setArguments(setPersonalBundleInfo());
                 replaceFragment(myPageFragment);
                 break;
             case 4:
+                SettingFragment settingFragment = new SettingFragment();
                 replaceFragment(settingFragment);
                 break;
         }

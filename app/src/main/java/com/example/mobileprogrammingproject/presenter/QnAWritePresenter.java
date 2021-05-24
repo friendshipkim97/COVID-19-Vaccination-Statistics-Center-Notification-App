@@ -1,10 +1,9 @@
 package com.example.mobileprogrammingproject.presenter;
 
+import com.example.mobileprogrammingproject.contract.QnAWriteContract;
 import com.example.mobileprogrammingproject.database.AppDatabase;
-import com.example.mobileprogrammingproject.databinding.ActivitySearchEmailBinding;
 import com.example.mobileprogrammingproject.databinding.FragmentQNAWriteBinding;
 import com.example.mobileprogrammingproject.model.QnA;
-import com.example.mobileprogrammingproject.valueObject.VQnA;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

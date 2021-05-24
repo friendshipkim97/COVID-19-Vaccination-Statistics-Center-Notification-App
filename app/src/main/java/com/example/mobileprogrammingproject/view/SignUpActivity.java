@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.example.mobileprogrammingproject.database.AppDatabase;
 import com.example.mobileprogrammingproject.R;
 import com.example.mobileprogrammingproject.databinding.ActivitySignUpBinding;
-import com.example.mobileprogrammingproject.presenter.SignUpContract;
+import com.example.mobileprogrammingproject.contract.SignUpContract;
 import com.example.mobileprogrammingproject.presenter.SignUpPresenter;
 
 public class SignUpActivity extends AppCompatActivity implements SignUpContract.View {

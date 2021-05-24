@@ -7,9 +7,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.mobileprogrammingproject.model.QnA;
-import com.example.mobileprogrammingproject.model.User;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Dao

@@ -2,16 +2,13 @@ package com.example.mobileprogrammingproject.view;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,7 +20,6 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.bumptech.glide.Glide;
 import com.example.mobileprogrammingproject.R;
 import com.example.mobileprogrammingproject.databinding.ActivityMainBinding;
 import com.example.mobileprogrammingproject.databinding.FragmentMyPageBinding;
@@ -87,6 +83,14 @@ public class MyPageFragment extends Fragment {
                 QNACheckFragment qnaCheckFragment = QNACheckFragment.newInstance();
                 qnaCheckFragment.setArguments(setPersonalBundleInfo());
                 replaceFragment(qnaCheckFragment);
+            }
+        });
+        mBinding.btnChangePersonalInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ChangePersonalInformationFragment changePersonalInformationFragment = new ChangePersonalInformationFragment();
+                changePersonalInformationFragment.setArguments(setPersonalBundleInfo());
+                replaceFragment(changePersonalInformationFragment);
             }
         });
 

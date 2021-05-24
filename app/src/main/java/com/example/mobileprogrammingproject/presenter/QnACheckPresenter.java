@@ -2,12 +2,10 @@ package com.example.mobileprogrammingproject.presenter;
 
 import android.util.Log;
 
+import com.example.mobileprogrammingproject.contract.QnACheckContract;
 import com.example.mobileprogrammingproject.database.AppDatabase;
 import com.example.mobileprogrammingproject.databinding.FragmentQNACheckBinding;
-import com.example.mobileprogrammingproject.databinding.FragmentQNAWriteBinding;
 import com.example.mobileprogrammingproject.model.QnA;
-import com.example.mobileprogrammingproject.valueObject.VQnA;
-import com.example.mobileprogrammingproject.view.QNACheckFragment;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -130,5 +130,30 @@ public class Constants {
 
     }
 
+    public enum EChangePersonalInformation {
+
+        pwEnglishNumberFormat("^.*(?=^.{8,12}$)(?=.*\\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$"),
+        pwInputMessage("비밀번호창에 비밀번호를 입력해주세요."),
+        pwWarningMessage("비밀번호는 영어, 숫자, 특수문자를 조합해 8~12자리로 입력해주세요."),
+        pwNotMatchMessage("비밀번호가 서로 일치하지 않습니다."),
+        nameInputMessage("이름을 입력해주세요."),
+        phoneNumberInputMessage("휴대폰번호를 입력해주세요,"),
+        phoneNumberFormat("^\\d{3}-\\d{3,4}-\\d{4}$"),
+        phoneNumberErrorMessage("올바른 휴대폰 번호를 입력해주세요."),
+        genderCheckMessage("성별을 체크해주세요."),
+        dpYear("년"),
+        dpMonth("월"),
+        dpDay("일"),
+        changeCompleteMessage("개인정보 변경을 완료했습니다.");
+
+        private String text;
+        private EChangePersonalInformation(String text){
+            this.text=text;
+        }
+        public String getText(){
+            return this.text;
+        }
+    }
+
 
 }

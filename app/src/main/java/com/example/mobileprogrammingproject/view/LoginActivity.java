@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.example.mobileprogrammingproject.R;
 import com.example.mobileprogrammingproject.database.AppDatabase;
 import com.example.mobileprogrammingproject.databinding.ActivityLoginBinding;
-import com.example.mobileprogrammingproject.presenter.LoginContract;
+import com.example.mobileprogrammingproject.contract.LoginContract;
 import com.example.mobileprogrammingproject.presenter.LoginPresenter;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
