@@ -123,9 +123,9 @@ public class MyPageFragment extends Fragment {
                     @Override
                     public void onCompleteLogout() {
                         showToast("로그아웃 했습니다.");
-                        getActivity().finish();
                     }
                 });
+                getActivity().finish();
             }
         });
     }

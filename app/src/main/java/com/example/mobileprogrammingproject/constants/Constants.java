@@ -155,5 +155,38 @@ public class Constants {
         }
     }
 
+    public enum EGoogleMapFragment {
+
+        baseUrl("https://api.odcloud.kr/api/"),
+        gpsAccessMessage("이 앱을 실행하려면 위치 접근 권한이 필요합니다."),
+        checkMessage("확인"),
+        address("주소: "),
+        latitude("위도: "),
+        longitude("경도: "),
+        notLocationMessage("위치정보 가져올 수 없음"),
+        permissionAndGPSMessage("위치 퍼미션과 GPS 활성 요부 확인하세요"),
+        deactivationMessage("위치 서비스 비활성화"),
+        permission1("퍼미션이 거부되었습니다. 앱을 다시 실행하여 퍼미션을 허용해주세요. "),
+        permission2("퍼미션이 거부되었습니다. 설정(앱 정보)에서 퍼미션을 허용해야 합니다. "),
+        gpsServiceMessage("앱을 사용하기 위해서는 위치 서비스가 필요합니다.\n"
+                + "위치 설정을 수정하시겠습니까?"),
+        setting("설정"),
+        cancel("취소"),
+        geoMessage("지오코더 서비스 사용불가합니다."),
+        notGPSMessage("잘못된 GPS 좌표입니다."),
+        notFindAddressMessage("주소를 발견하지 못했습니다.");
+
+
+
+
+        private String text;
+        private EGoogleMapFragment(String text){
+            this.text=text;
+        }
+        public String getText(){
+            return this.text;
+        }
+    }
+
 
 }

@@ -28,7 +28,6 @@ public class QnACheckPresenter implements QnACheckContract.Presenter{
          int userId = this.mAppDatabase.userDao().findIdByEmailAndType(strEmail, strEmailType);
         List<QnA> list = this.mAppDatabase.qnADao().findAllQnAByuserId(userId);
         ArrayList<QnA> arrayList = (ArrayList<QnA>) list;
-       Log.e("확인",arrayList.get(0).getTitle());
         return arrayList;
     }
 
