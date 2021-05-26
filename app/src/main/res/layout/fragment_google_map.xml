@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="120sp"
-            android:text="@string/signUpText"
+            android:text="@string/googleMapToolbar"
             android:textColor="#000000"
             android:textSize="24sp"
             tools:layout_editor_absoluteX="173dp"
@@ -47,8 +47,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="250dp"
         android:layout_marginLeft="250dp"
-        android:background="@drawable/et_border"
-        android:text="이동"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/et_border_soft_edge"
+        android:text="@string/googleMapMove"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tb_googleMap" />
@@ -59,11 +60,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="250dp"
         android:layout_marginLeft="250dp"
-        android:layout_marginTop="60dp"
-        android:background="@drawable/et_border"
-        android:text="멈추기"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/et_border_soft_edge"
+        android:text="@string/googleMapStop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb_googleMap" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_move" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

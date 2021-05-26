@@ -38,6 +38,26 @@
     <string name="signUpTextTermsOfServiceAgreement">(필수) 이용약관동의</string>
     <string name="signUpTextPrivacyAgreement">(필수) 개인정보수집 및 이용 동의</string>
     <string name="title_activity_qn_a">QnAActivity</string>
+
+    <!--    fragment_google_map.xml-->
+    <string name="googleMapToolbar">코로나 예방접종 병원 현황</string>
+    <string name="googleMapMove">이동</string>
+    <string name="googleMapStop">멈추기</string>
+
+    <!--    fragment_center_detailed.xml-->
+    <string name="hospitalDetailedToolbar">자세한 정보</string>
+    <string name="hospitalDetailed">선택하신 센터의 자세한 정보입니다.</string>
+    <string name="moveSite">예방접종 예약하러 가기</string>
+    <string name="phoneNumber">전화번호:</string>
+    <string name="org">기관:</string>
+    <string name="facilityName">시설이름:</string>
+    <string name="address">주소:</string>
+    <string name="centerType">센터타입:</string>
+    <string name="centerName">센터이름:</string>
+
+    <!--    fragment_web_view.xml-->
+    <string name="site">예방접종 사이트:</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

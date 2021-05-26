@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.CenterDetailedFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb_googleMap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/et_border"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_signUpInfo2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120sp"
+            android:text="@string/hospitalDetailedToolbar"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="173dp"
+            tools:layout_editor_absoluteY="21dp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tb_googleMap">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_centerNameInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="@string/centerName"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toStartOf="@+id/tv_centerName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_hospitalDetailedInfo" />
+
+            <TextView
+                android:id="@+id/tv_centerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_centerNameInfo"
+                app:layout_constraintTop_toBottomOf="@+id/tv_hospitalDetailedInfo" />
+
+            <TextView
+                android:id="@+id/tv_centerTypeInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/centerType"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toStartOf="@+id/tv_centerType"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_centerNameInfo" />
+
+            <TextView
+                android:id="@+id/tv_centerType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_centerTypeInfo"
+                app:layout_constraintTop_toBottomOf="@+id/tv_centerName" />
+
+            <TextView
+                android:id="@+id/tv_addressInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/address"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toStartOf="@+id/tv_adress"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_centerTypeInfo" />
+
+            <TextView
+                android:id="@+id/tv_adress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_addressInfo"
+                app:layout_constraintTop_toBottomOf="@+id/tv_centerType" />
+
+            <TextView
+                android:id="@+id/tv_facilityNameInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/facilityName"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toStartOf="@+id/tv_facilityName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_addressInfo" />
+
+            <TextView
+                android:id="@+id/tv_facilityName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_facilityNameInfo"
+                app:layout_constraintTop_toBottomOf="@+id/tv_adress" />
+
+            <TextView
+                android:id="@+id/tv_orgInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/org"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toStartOf="@+id/tv_org"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_facilityNameInfo" />
+
+            <TextView
+                android:id="@+id/tv_org"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_orgInfo"
+                app:layout_constraintTop_toBottomOf="@+id/tv_facilityName" />
+
+            <TextView
+                android:id="@+id/tv_phoneNumberInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/phoneNumber"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toStartOf="@+id/tv_phoneNumber"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_orgInfo" />
+
+            <TextView
+                android:id="@+id/tv_phoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_phoneNumberInfo"
+                app:layout_constraintTop_toBottomOf="@+id/tv_org" />
+
+            <TextView
+                android:id="@+id/tv_hospitalDetailedInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="@string/hospitalDetailed"
+                android:textColor="#000000"
+                android:textSize="22dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_moveSite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/et_border"
+                android:text="@string/moveSite"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_phoneNumberInfo" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

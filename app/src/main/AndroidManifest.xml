@@ -3,9 +3,9 @@
     package="com.example.mobileprogrammingproject">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name=".api.CustomApplication"
@@ -16,6 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileProgrammingProject"
         android:usesCleartextTraffic="true">
+        <activity android:name=".view.WebViewFragment"></activity>
+        <activity android:name=".view.CenterDetailedFragment" />
         <activity android:name=".view.SearchPasswordActivity" />
         <activity android:name=".view.SearchEmailActivity" />
         <activity android:name=".view.SignUpActivity" />
@@ -34,12 +36,10 @@
 
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
-        </activity>
-<!--        구글 맵 api-->
+        </activity> <!-- 구글 맵 api -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCHH_QJA7rBElU5Y76rJ2BAjrQqL9_xJuA" />
-<!--        카카오 로그인 키 등록-->
+            android:value="AIzaSyCHH_QJA7rBElU5Y76rJ2BAjrQqL9_xJuA" /> <!-- 카카오 로그인 키 등록 -->
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="bca04f851a4c547992617a460978a015" />

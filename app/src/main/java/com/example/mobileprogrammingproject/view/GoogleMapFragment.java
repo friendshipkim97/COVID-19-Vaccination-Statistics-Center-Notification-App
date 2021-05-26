@@ -24,6 +24,8 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Looper;
+import android.os.Parcelable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -57,8 +59,10 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Locale;
 import java.util.Vector;
@@ -70,7 +74,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class GoogleMapFragment extends Fragment implements OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener,
-        GoogleMap.OnMyLocationClickListener, ActivityCompat.OnRequestPermissionsResultCallback {
+        GoogleMap.OnMyLocationClickListener, ActivityCompat.OnRequestPermissionsResultCallback{
 
     private FragmentGoogleMapBinding mBinding;
     private Context context;
@@ -96,7 +100,6 @@ public class GoogleMapFragment extends Fragment implements OnMapReadyCallback, G
     private LocationRequest locationRequest;
     private Location location;
     private View mLayout;
-
 
     @Override
     public void onAttach(@NonNull Activity activity) {
@@ -213,7 +216,7 @@ public class GoogleMapFragment extends Fragment implements OnMapReadyCallback, G
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         setDefaultLocation();
-        fetchCenter(googleMap);
+        fetchCenter(mMap);
     }
 
     public void fetchCenter(GoogleMap googleMap) {
@@ -227,7 +230,9 @@ public class GoogleMapFragment extends Fragment implements OnMapReadyCallback, G
                     public void onResponse(Call<Pagination<List<Center>>> call, Response<Pagination<List<Center>>> response) {
                         if (response.isSuccessful()) {
                             for (Center res : response.body().getData()) {
+                                Log.e("마커데이터확인", res.getCenterName());
                                 centerItems.add(res);
+
                             }
                             updateMapMarkers(centerItems, googleMap);
                         }
@@ -244,14 +249,40 @@ public class GoogleMapFragment extends Fragment implements OnMapReadyCallback, G
             for (Center centerItem : center) {
                 MarkerOptions markerOptions = new MarkerOptions();
                 LatLng location = new LatLng(Double.valueOf(centerItem.getLat()), Double.valueOf(centerItem.getLng()));
+                markerOptions.icon(BitmapDescriptorFactory.defaultMarker(200f));
                 markerOptions.title(centerItem.getCenterName());
                 markerOptions.snippet(Constants.EGoogleMapFragment.address.getText() + centerItem.getAddress());
                 markerOptions.position(location);
+                GoogleMap.OnInfoWindowClickListener infoWindowClickListener = new GoogleMap.OnInfoWindowClickListener() {
+                    @Override
+                    public void onInfoWindowClick(Marker marker) {
+                        int id = parsingId(marker.getId());
+                        Toast.makeText(fragmentContext, "해당 센터는 "+ marker.getTitle() + " 입니다.", Toast.LENGTH_SHORT).show();
+                        replaceSetBundleFragment(CenterDetailedFragment.newInstance(), centerItems.get(id));
+                    }
+
+                };
+                GoogleMap.OnMarkerClickListener markerClickListener = new GoogleMap.OnMarkerClickListener() {
+                    @Override
+                    public boolean onMarkerClick(Marker marker) {
+                        Toast.makeText(fragmentContext, "해당 센터는 " + marker.getTitle() + " 입니다.", Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+                };
+                googleMap.setOnInfoWindowClickListener(infoWindowClickListener);
+                googleMap.setOnMarkerClickListener(markerClickListener);
                 googleMap.addMarker(markerOptions);
             }
         }
 
     }
+
+    private int parsingId(String inputId) {
+        String idExam = inputId.replaceAll("m", "");
+        int id = Integer.valueOf(idExam);
+        return id-1;
+    }
+
 
     private void startLocationUpdates() {
 
@@ -505,6 +536,15 @@ public class GoogleMapFragment extends Fragment implements OnMapReadyCallback, G
     @Override
     public void onMyLocationClick(@NonNull Location location) {
 
+    }
+
+    public void replaceSetBundleFragment(Fragment fragment, Center centerItem){
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("centerItem", centerItem);
+        fragment.setArguments(bundle);
+        FragmentManager fragmentManager = fragmentContext.getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_frag, fragment).commit();
     }
 
 }
