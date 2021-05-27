@@ -156,7 +156,6 @@ public class Constants {
     }
 
     public enum EGoogleMapFragment {
-
         baseUrl("https://api.odcloud.kr/api/"),
         gpsAccessMessage("이 앱을 실행하려면 위치 접근 권한이 필요합니다."),
         checkMessage("확인"),
@@ -176,9 +175,6 @@ public class Constants {
         notGPSMessage("잘못된 GPS 좌표입니다."),
         notFindAddressMessage("주소를 발견하지 못했습니다.");
 
-
-
-
         private String text;
         private EGoogleMapFragment(String text){
             this.text=text;
@@ -188,5 +184,14 @@ public class Constants {
         }
     }
 
+    public enum EMainVaccineStatAdapter {
+        clickDetailed("한번 더 터치하면 자세히 볼 수 있습니다."),
+        vaccineStat("vaccineStat"),
+        clickTerm("1000");
+
+        private String text;
+        private EMainVaccineStatAdapter(String text) { this.text = text; }
+        public String getText() { return this.text; }
+    }
 
 }

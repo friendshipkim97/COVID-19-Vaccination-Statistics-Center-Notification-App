@@ -30,10 +30,6 @@ public class MainActivity extends AppCompatActivity {
     // main Attributes
     private ActivityMainBinding mBinding;
     private String strNick, strProfileImg, strEmail, strEmailType;
-//    private SearchFragment searchFragment;
-//    private HomeFragment homeFragment;
-//    private MyPageFragment myPageFragment;
-//    private SettingFragment settingFragment;
 
     // drawer Attributes
     private DrawerLayout drawerLayout;

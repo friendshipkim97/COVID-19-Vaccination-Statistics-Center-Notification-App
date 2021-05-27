@@ -41,6 +41,7 @@ public class QNACustomAdapter extends RecyclerView.Adapter<QNACustomAdapter.Cust
         holder.email.setText(strEmail);
         holder.title.setText(arrayList.get(position).getTitle());
         holder.content.setText(arrayList.get(position).getContent());
+        holder.itemView.setTag(position);
     }
 
     @Override

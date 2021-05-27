@@ -1,19 +1,13 @@
 package com.example.mobileprogrammingproject.api;
 
 import com.example.mobileprogrammingproject.model.Center;
-import com.example.mobileprogrammingproject.model.CenterResponse;
-import com.example.mobileprogrammingproject.model.PageRequest;
 import com.example.mobileprogrammingproject.model.Pagination;
 
 import java.util.List;
-import java.util.Map;
 
 import retrofit2.Call;
-import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
-import retrofit2.http.Query;
-import retrofit2.http.QueryMap;
 
 public interface VaccinationApi {
 

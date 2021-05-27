@@ -58,6 +58,13 @@
     <!--    fragment_web_view.xml-->
     <string name="site">예방접종 사이트:</string>
 
+    <!--    fragment_home.xml-->
+    <string name="homeToolbar">메인 페이지</string>
+    <string name="criteriaTimeInfo">통계 기준일자 : </string>
+    <string name="vaccineInfo">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;시도&#160;&#160;&#160;&#160;&#160;&#160;당일 통계(1차 접종)&#160;&#160;&#160;&#160;&#160;&#160;당일 통계(2차 접종)</string>
+    <string name="mainInfo">현재 코로나 백신 예방 접종 통계입니다.</string>
+    <string name="moveGoogle">예방접종 센터 확인하기</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
