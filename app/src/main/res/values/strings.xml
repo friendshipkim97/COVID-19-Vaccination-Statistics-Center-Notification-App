@@ -65,6 +65,53 @@
     <string name="mainInfo">현재 코로나 백신 예방 접종 통계입니다.</string>
     <string name="moveGoogle">예방접종 센터 확인하기</string>
 
+    <!--    activity_main_drawer.xml-->
+    <string name="tv_drawerInfo1">카테고리</string>
+    <string name="menu1">코로나19 예방접종은 왜 해야 하나요?</string>
+    <string name="info1">1. 코로나19 예방접종은 어떻게코로나19로부터 우리몸을 보호하나요?</string>
+    <string name="info2">2. 코로나19 예방접종은 효과가 있나요?</string>
+    <string name="info3">3. 코로나19 예방접종만으로 코로나19를 예방할 수 있나요?</string>
+    <string name="menu2">코로나19 예방접종, 언제 어디서 할 수 있나요?</string>
+    <string name="info4">1. 저도 코로나19 예방접종을 해도 되나요?</string>
+    <string name="info5">2. 코로나19 예방접종은 어디서 할 수 있나요?</string>
+
+    <!--    fragment_covid_info1.xml-->
+    <string name="tv_covidInfoToolbar">코로나19 예방접종</string>
+    <string name="tv_info1Title1">코로나19 예방접종의 작용기전</string>
+    <string name="tv_info1Content1">예방접종은 인체의 면역 체계를 훈련시켜 코로나19 바이러스를 인식하고 제거하도록 합니다.</string>
+    <string name="tv_info1Content2">예방접종은 우리 몸이 코로나19에 걸리지 않고 면역을 획득할 수 있는 안전한 방법입니다.</string>
+    <string name="tv_info1Content3">다양한 종류의 백신이 있지만, 모든 백신은 결국 우리 몸의 면역세포가 바이러스를 구성하는 일부 단백질 부분을 인식하고 반응하여 항체를 만들어 내고, 면역 세포 중 일부는 기억 세포로 남습니다.</string>
+    <string name="tv_info1Content4">이후 인체에 코로나19 바이러스가 침입했을 때 활성화되어 바이러스나 바이러스에 감염된 세포를 제거합니다.</string>
+    <string name="tv_info1Content5">이러한 기전으로 코로나19 예방접종은 코로나19 감염의 위험을 줄여주고, 중증 환자발생이나 사망을 예방합니다.</string>
+    <string name="tv_info1Content6">예방접종 후 면역을 획득하기까지 통상 2주 이상이 소요되므로 예방접종 직후에는 코로나19 바이러스에 노출되어 코로나바이러스감염증-19에 걸릴 수 있습니다.</string>
+    <string name="tv_info1Content7">예방접종 후에 면역 형성과정에서 발열, 피로, 두통, 근육통, 메스꺼움ㆍ구토 증상이 나타날 수 있으나, 이는 정상 반응으로 볼 수 있습니다. 대부분 3일 이내에 증상이 사라지게 됩니다.</string>
+
+    <!--    fragment_covid_info2.xml-->
+    <string name="tv_info2Title1">Question1. 코로나19 예방접종을 하면 코로나바이러스감염증-19로부터 보호받을 수 있나요?</string>
+    <string name="tv_info2Content1">1. 예. 그렇습니다. 코로나19 예방접종을 하면, 인체의 면역체계가 코로나19 바이러스의 침입에 어떻게 싸워야 할지 배우게 되어, 우리 몸이 코로나바이러스감염증-19로 아프지 않도록 보호해 줍니다.</string>
+    <string name="tv_info2Content2">2. 예방접종으로 코로나19 바이러스에 대한 면역을 형성하는 것은 매우 중요한데, 코로나19 바이러스의 감염을 예방할 뿐만 아니라 코로나19 바이러스에 감염되더라도 중증 감염이나 사망에 이르는 상황을 예방할 수 있습니다.</string>
+    <string name="tv_info2Title2">Question2. 우리나라의 코로나19 예방접종 효과 분석 결과가 있나요?</string>
+    <string name="tv_info2Content3">1. 우리나라에서 2021년 2월 26일부터 4월 26일까지 60세 이상 백신접종자·비접종자 대상 정밀 백신효과 분석결과,
+    예방 접종 2주 후부터 86.6% 이상 감염 예방에 높은 효과를 보였으며, 백신별로 아스트라제네카 백신효과는 86.0%, 화이자 백신효과는 89.7%로 확인되었습니다.</string>
+
+    <!--    fragment_covid_info3.xml-->
+    <string name="tv_info3Title1">Question1. 코로나19 예방접종만으로 코로나19를 예방할 수 있나요?</string>
+    <string name="tv_info3Content1">1. 아닙니다. 코로나19 예방접종은 100% 예방효과를 보이는 것은 아니므로, 코로나바이러스감염증-19 예방을 위해 감염예방수칙을 준수하는 것도 매우 중요합니다.</string>
+    <string name="tv_info3Title2">Question2. 코로나19 예방접종을 완료하면 마스크를 쓰지 않아도 되나요?</string>
+    <string name="tv_info3Content2">1. 마스크를 써야합니다. 코로나바이러스감염증-19의 전파를 차단하기 위해 언제 마스크를 벗고, 거리두기를 중단해도 되는지를 결정한 증거가 현재까지 충분하지 않습니다. 앞으로 코로나19 백신의 예방효과에 대해 더 연구가 필요합니다.</string>
+    <string name="tv_info3Content3">2. 또한 코로나19 예방접종이 바이러스가 다른 사람에게 전파되는 것을 예방할 수 있는지에 대한 정보도 없습니다.</string>
+    <string name="tv_info3Content4">3. 따라서, 코로나19의 감염을 예방하고 전파를 차단하기 위해서는 예방접종뿐만 아니라 마스크 착용 등 감염예방수칙도 지속 준수해야 합니다.</string>
+
+    <!--    fragment_covid_info4.xml-->
+    <string name="tv_info4Title1">Question1. 코로나19에 감염되었다가 회복되었습니다. 저도 코로나19 예방접종을 해도 되나요?</string>
+    <string name="tv_info4Content1">예방접종 금기 대상이 아닌 경우 코로나19 감염된 이력이 있더라도 코로나19 예방접종을 권고합니다.</string>
+    <string name="tv_info4Content2">단, 코로나19 감염 시 수동항체치료를 받은 경우, 코로나19 예방접종으로 인한 면역반응과 항체치료의 간섭효과를 피하기 위해 최소 90일 이후 예방접종 시행을 권고합니다.</string>
+
+    <!--    fragment_covid_info5.xml-->
+    <string name="tv_info5Title1">Question1. 코로나19 예방접종은 어디서 할 수 있나요?</string>
+    <string name="tv_info5Content1">백신 및 접종 대상의 특성에 따라 예방접종센터-위탁의료기관-찾아가는 접종을 실시합니다.</string>
+    <string name="tv_info5Content2">현재 화이자 코로나19 백신(mRNA백신)은 예방접종센터에서, 바이러스 벡터 백신(아스트라제네카 코로나19 백신)은 위탁의료기관에서 접종하거나 대상자별로 방문접종을 실시하고 있습니다.</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -73,5 +120,7 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
 

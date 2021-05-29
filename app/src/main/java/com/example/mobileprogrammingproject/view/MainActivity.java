@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,9 +19,6 @@ import androidx.fragment.app.FragmentTransaction;
 import com.bumptech.glide.Glide;
 import com.example.mobileprogrammingproject.R;
 import com.example.mobileprogrammingproject.databinding.ActivityMainBinding;
-import com.example.mobileprogrammingproject.databinding.ActivityMainDrawerBinding;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.maps.GoogleMap;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_close;
     private ImageView profileImg;
     private TextView tv_name, tv_email;
-    private TextView tv_exam1, tv_exam2, tv_exam3, tv_exam4;
+    private TextView tv_menu1, tv_menu2, tv_info1, tv_info2, tv_info3, tv_info4, tv_info5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,10 +98,13 @@ public class MainActivity extends AppCompatActivity {
         profileImg = findViewById(R.id.iv_profile);
         tv_name = findViewById(R.id.tv_nickName);
         tv_email = findViewById(R.id.tv_email);
-        tv_exam1 = findViewById(R.id.tv_exam1);
-        tv_exam2 = findViewById(R.id.tv_exam2);
-        tv_exam3 = findViewById(R.id.tv_exam3);
-        tv_exam4 = findViewById(R.id.tv_exam4);
+        tv_menu1 = findViewById(R.id.tv_menu1);
+        tv_menu2 = findViewById(R.id.tv_menu2);
+        tv_info1 = findViewById(R.id.tv_info1);
+        tv_info2 = findViewById(R.id.tv_info2);
+        tv_info3 = findViewById(R.id.tv_info3);
+        tv_info4 = findViewById(R.id.tv_info4);
+        tv_info5 = findViewById(R.id.tv_info5);
 
         Glide.with(this).load(strProfileImg).override(300,300).into(profileImg);
         tv_name.setText(strNick);
@@ -130,28 +129,55 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        tv_exam1.setOnClickListener(new View.OnClickListener() {
+        tv_menu1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(tv_exam2.getVisibility()==View.VISIBLE){
-                    tv_exam2.setVisibility(View.GONE);
+                if(tv_info1.getVisibility()==View.VISIBLE){
+                    tv_info1.setVisibility(View.GONE);
+                    tv_info2.setVisibility(View.GONE);
+                    tv_info3.setVisibility(View.GONE);
                 }
                 else{
-                    tv_exam2.setVisibility(View.VISIBLE);
+                    tv_info1.setVisibility(View.VISIBLE);
+                    tv_info2.setVisibility(View.VISIBLE);
+                    tv_info3.setVisibility(View.VISIBLE);
                 }
             }
         });
 
-        tv_exam3.setOnClickListener(new View.OnClickListener() {
+        tv_menu2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(tv_exam4.getVisibility()==View.VISIBLE){
-                    tv_exam4.setVisibility(View.GONE);
+                if(tv_info4.getVisibility()==View.VISIBLE){
+                    tv_info4.setVisibility(View.GONE);
+                    tv_info5.setVisibility(View.GONE);
                 }
                 else{
-                    tv_exam4.setVisibility(View.VISIBLE);
+                    tv_info4.setVisibility(View.VISIBLE);
+                    tv_info5.setVisibility(View.VISIBLE);
                 }
             }
+        });
+
+        tv_info1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {replaceFragment(CovidInfo1Fragment.newInstance()); }
+        });
+        tv_info2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {replaceFragment(CovidInfo2Fragment.newInstance()); }
+        });
+        tv_info3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {replaceFragment(CovidInfo3Fragment.newInstance()); }
+        });
+        tv_info4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {replaceFragment(CovidInfo4Fragment.newInstance()); }
+        });
+        tv_info5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {replaceFragment(CovidInfo5Fragment.newInstance()); }
         });
 
         btn_close.setOnClickListener(new View.OnClickListener() {
@@ -161,14 +187,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-//    private void mainInit() {
-//
-////        searchFragment = new SearchFragment();
-////        homeFragment = new HomeFragment();
-////        myPageFragment = new MyPageFragment();
-////        settingFragment = new SettingFragment();
-//    }
 
     private void setFrag(int n){
         switch (n){
