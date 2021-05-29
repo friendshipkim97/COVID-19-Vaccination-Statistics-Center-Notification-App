@@ -161,23 +161,23 @@ public class MainActivity extends AppCompatActivity {
 
         tv_info1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {replaceFragment(CovidInfo1Fragment.newInstance()); }
+            public void onClick(View view) {drawerLayout.closeDrawers(); replaceFragment(CovidInfo1Fragment.newInstance()); }
         });
         tv_info2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {replaceFragment(CovidInfo2Fragment.newInstance()); }
+            public void onClick(View view) {drawerLayout.closeDrawers(); replaceFragment(CovidInfo2Fragment.newInstance()); }
         });
         tv_info3.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {replaceFragment(CovidInfo3Fragment.newInstance()); }
+            public void onClick(View view) {drawerLayout.closeDrawers(); replaceFragment(CovidInfo3Fragment.newInstance()); }
         });
         tv_info4.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {replaceFragment(CovidInfo4Fragment.newInstance()); }
+            public void onClick(View view) {drawerLayout.closeDrawers(); replaceFragment(CovidInfo4Fragment.newInstance()); }
         });
         tv_info5.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {replaceFragment(CovidInfo5Fragment.newInstance()); }
+            public void onClick(View view) {drawerLayout.closeDrawers(); replaceFragment(CovidInfo5Fragment.newInstance()); }
         });
 
         btn_close.setOnClickListener(new View.OnClickListener() {
