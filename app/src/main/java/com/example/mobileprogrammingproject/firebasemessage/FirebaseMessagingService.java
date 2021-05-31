@@ -33,7 +33,6 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
         // notification눌렀을 때 행위를 구현한 것
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, new Intent(this, LoginActivity.class), 0);
 
-        // 푸쉬 알림이 떴을 때 기본 안드로이드 아이콘을 사용한다.
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this).setSmallIcon(R.drawable.covidicon)
                 .setContentTitle(title)
                 .setContentText(msg)

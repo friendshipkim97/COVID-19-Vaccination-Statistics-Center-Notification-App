@@ -3,7 +3,6 @@ package com.example.mobileprogrammingproject.constants;
 public class Constants {
 
     public enum ELogin{
-
         googleLoginButtonText("구글 로그인"),
         kakaoLoginErrorMessage("로그인 도중에 오류가 발생했습니다."),
         kakaoSessionClosedMessage("세션이 닫혔습니다.. 다시 시도해주세요"),
@@ -26,7 +25,6 @@ public class Constants {
         kakaoSignUpMessage("카카오로 회원가입 했습니다."),
         googleLoginSuccess("구글 로그인 성공했습니다."),
         googleSignUpMessage("구글로 회원가입 했습니다.");
-
 
         private String text;
         private ELogin(String text){
