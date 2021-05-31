@@ -230,7 +230,7 @@ public class GoogleMapFragment extends Fragment implements OnMapReadyCallback, G
                     public void onResponse(Call<Pagination<List<Center>>> call, Response<Pagination<List<Center>>> response) {
                         if (response.isSuccessful()) {
                             for (Center res : response.body().getData()) {
-                                Log.e("마커데이터확인", res.getCenterName());
+                                Log.e(Constants.EGoogleMapFragment.markerDataCheck.getText(), res.getCenterName());
                                 centerItems.add(res);
 
                             }
@@ -257,7 +257,7 @@ public class GoogleMapFragment extends Fragment implements OnMapReadyCallback, G
                     @Override
                     public void onInfoWindowClick(Marker marker) {
                         int id = parsingId(marker.getId());
-                        Toast.makeText(fragmentContext, "해당 센터는 "+ marker.getTitle() + " 입니다.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(fragmentContext, Constants.EGoogleMapFragment.centerIs.getText()+ marker.getTitle() + Constants.EGoogleMapFragment.is.getText(), Toast.LENGTH_SHORT).show();
                         replaceSetBundleFragment(CenterDetailedFragment.newInstance(), centerItems.get(id));
                     }
 
@@ -265,7 +265,7 @@ public class GoogleMapFragment extends Fragment implements OnMapReadyCallback, G
                 GoogleMap.OnMarkerClickListener markerClickListener = new GoogleMap.OnMarkerClickListener() {
                     @Override
                     public boolean onMarkerClick(Marker marker) {
-                        Toast.makeText(fragmentContext, "해당 센터는 " + marker.getTitle() + " 입니다.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(fragmentContext, Constants.EGoogleMapFragment.centerIs.getText() + marker.getTitle() + Constants.EGoogleMapFragment.is.getText(), Toast.LENGTH_SHORT).show();
                         return false;
                     }
                 };

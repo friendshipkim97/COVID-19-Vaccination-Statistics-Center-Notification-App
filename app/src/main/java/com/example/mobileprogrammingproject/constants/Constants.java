@@ -171,7 +171,10 @@ public class Constants {
         cancel("취소"),
         geoMessage("지오코더 서비스 사용불가합니다."),
         notGPSMessage("잘못된 GPS 좌표입니다."),
-        notFindAddressMessage("주소를 발견하지 못했습니다.");
+        notFindAddressMessage("주소를 발견하지 못했습니다."),
+        markerDataCheck("마커데이터확인"),
+        centerIs("해당 센터는 "),
+        is("입니다.");
 
         private String text;
         private EGoogleMapFragment(String text){
