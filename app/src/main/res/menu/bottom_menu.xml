@@ -3,17 +3,17 @@
     <item
         android:id="@+id/action_menu"
         android:enabled="true"
-        android:icon="@drawable/fui_ic_facebook_white_22dp"
+        android:icon="@drawable/ic_baseline_menu_24"
         android:title="메뉴"/>
     <item
         android:id="@+id/action_search"
         android:enabled="true"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_baseline_fmd_good_24"
         android:title="검색"/>
     <item
         android:id="@+id/action_home"
         android:enabled="true"
-        android:icon="@drawable/abc_vector_test"
+        android:icon="@drawable/ic_baseline_home_24"
         android:title="홈"/>
     <item
         android:id="@+id/action_myPage"
@@ -23,7 +23,7 @@
     <item
         android:id="@+id/action_setting"
         android:enabled="true"
-        android:icon="@drawable/common_google_signin_btn_icon_dark"
+        android:icon="@drawable/ic_baseline_settings_24"
         android:title="설정"/>
 
 </menu>

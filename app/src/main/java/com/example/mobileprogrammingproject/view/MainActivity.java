@@ -193,8 +193,8 @@ public class MainActivity extends AppCompatActivity {
             case 0:
                 break;
             case 1:
-                SearchFragment searchFragment = new SearchFragment();
-                replaceFragment(searchFragment);
+                GoogleMapFragment googleMapFragment = GoogleMapFragment.newInstance();
+                replaceFragment(googleMapFragment);
                 break;
             case 2:
                 HomeFragment homeFragment = new HomeFragment();

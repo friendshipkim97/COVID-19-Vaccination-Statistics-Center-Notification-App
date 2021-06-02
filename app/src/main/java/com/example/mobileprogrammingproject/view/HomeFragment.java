@@ -76,13 +76,13 @@ public class HomeFragment extends Fragment {
         initToolbar();
         setHasOptionsMenu(true);
 
-        mBinding.btnGoogleMove.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                GoogleMapFragment googleMapFragment = GoogleMapFragment.newInstance();
-                replaceFragment(googleMapFragment);
-            }
-        });
+//        mBinding.btnGoogleMove.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                GoogleMapFragment googleMapFragment = GoogleMapFragment.newInstance();
+//                replaceFragment(googleMapFragment);
+//            }
+//        });
 
         return view;
     }
