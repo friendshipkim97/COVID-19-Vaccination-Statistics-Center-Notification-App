@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 
+import com.example.mobileprogrammingproject.constants.Constants;
 import com.example.mobileprogrammingproject.view.SettingFragment;
 
 public class NetworkReceiver extends BroadcastReceiver {
@@ -16,9 +17,9 @@ public class NetworkReceiver extends BroadcastReceiver {
             NetworkInfo info = (NetworkInfo)intent.getParcelableExtra((WifiManager.EXTRA_NETWORK_INFO));
             NetworkInfo.DetailedState state = info.getDetailedState();
             if(state == NetworkInfo.DetailedState.CONNECTED){ // 네트워크 연결 상태이면...
-                  SettingFragment.newInstance().broadTextView.setText("네트워크 연결 완료");
+                  SettingFragment.newInstance().broadTextView.setText(Constants.ENetworkReceiver.successNetwork.getText());
             } else if(state == NetworkInfo.DetailedState.DISCONNECTED){ // 네트워크 연결 해제이면..
-                SettingFragment.newInstance().broadTextView.setText("네트워크 연결 해제");
+                SettingFragment.newInstance().broadTextView.setText(Constants.ENetworkReceiver.failNetwork.getText());
             }
         }
     }

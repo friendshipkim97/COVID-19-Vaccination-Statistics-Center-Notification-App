@@ -195,4 +195,14 @@ public class Constants {
         public String getText() { return this.text; }
     }
 
+    public enum ENetworkReceiver{
+        successNetwork("네트워크 연결 완료"),
+        failNetwork("네트워크 연결 해제");
+
+        private String text;
+        private ENetworkReceiver(String text) { this.text = text; }
+        public String getText() { return this.text; }
+
+    }
+
 }
