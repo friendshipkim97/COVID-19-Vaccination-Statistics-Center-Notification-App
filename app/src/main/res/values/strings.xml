@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MobileProgrammingProject</string>
+    <string name="app_name">COVID-19 예방접종 통계, 센터 알리미</string>
 
     <!--    activity_login.xml-->
     <string name="loginHintId">Email</string>
@@ -56,7 +56,7 @@
     <string name="centerName">센터이름:</string>
 
     <!--    fragment_web_view.xml-->
-    <string name="site">예방접종 사이트:</string>
+    <string name="site">예방접종 사이트</string>
 
     <!--    fragment_home.xml-->
     <string name="homeToolbar">메인 페이지</string>
@@ -116,7 +116,14 @@
     <string name="tv_settingInfo">설정</string>
     <string name="btn_broadCastCheck">broadCastCheck</string>
     <string name="tv_state">BroadCastCheck</string>
-
+    <string name="btn_fileAppCreator">App 제작자 확인</string>
+    <string name="tv_creatorAffiliationInfo">제작자 소속</string>
+    <string name="tv_creatorNameInfo">제작자 이름</string>
+    <string name="tv_creatorNumberInfo">제작자 학번</string>
+    <string name="btn_fileAppCreatorWrite">App 제작자 작성</string>
+    <string name="tv_creatorAffiliation2">제작자 소속을 작성해 주세요.</string>
+    <string name="tv_creatorName2">제작자 이름을 작성해 주세요.</string>
+    <string name="tv_creatorNumber2">제작자 학번을 작성해 주세요.</string>
 
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

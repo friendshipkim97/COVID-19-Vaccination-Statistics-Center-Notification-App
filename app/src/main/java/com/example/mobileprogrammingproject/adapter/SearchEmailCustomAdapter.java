@@ -1,6 +1,7 @@
 package com.example.mobileprogrammingproject.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ import com.example.mobileprogrammingproject.model.User;
 import com.example.mobileprogrammingproject.contract.SearchEmailContract;
 import com.example.mobileprogrammingproject.valueObject.VSearchEmailChild;
 import com.example.mobileprogrammingproject.constants.Constants.ESearchEmailCustomAdapter;
+import com.example.mobileprogrammingproject.view.LoginActivity;
+import com.example.mobileprogrammingproject.view.SignUpActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -102,6 +105,7 @@ public class SearchEmailCustomAdapter extends RecyclerView.Adapter<SearchEmailCu
             } else {
                 for(int i=0; i<userList.size(); i++)
                 {
+
                     searchEmailView.showToast(ESearchEmailCustomAdapter.notificationMessage1.getText() + userList.get(i).getEmail() + ESearchEmailCustomAdapter.notificationMessage2.getText());
                 }
                 return true;

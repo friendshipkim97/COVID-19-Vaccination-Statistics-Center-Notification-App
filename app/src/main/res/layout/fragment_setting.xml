@@ -33,7 +33,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tb_setting">
+        app:layout_constraintTop_toBottomOf="@+id/tb_setting"
+        tools:layout_editor_absoluteX="-136dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -44,11 +45,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                android:layout_marginBottom="700dp"
                 android:background="@drawable/et_border_soft_edge"
                 android:text="@string/btn_broadCastCheck"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tv_state"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,19 +56,183 @@
                 android:layout_width="wrap_content"
                 android:layout_height="34dp"
                 android:layout_marginTop="50dp"
-                android:layout_marginBottom="700dp"
                 android:text="@string/tv_state"
                 android:textColor="#000000"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btn_broadCastCheck"
-                app:layout_constraintTop_toTopOf="parent"></TextView>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_broadCastCheck"></TextView>
+
+            <Button
+                android:id="@+id/btn_fileAppCreator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/et_border_soft_edge"
+                android:text="@string/btn_fileAppCreator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_state" />
+
+            <TextView
+                android:id="@+id/tv_creatorAffiliationInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:textColor="#000000"
+                android:text="@string/tv_creatorAffiliationInfo"
+                app:layout_constraintEnd_toStartOf="@+id/tv_creatorAffiliation"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_fileAppCreator" />
+
+            <TextView
+                android:id="@+id/tv_creatorAffiliation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:textColor="#000000"
+                android:text=""
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_creatorAffiliationInfo"
+                app:layout_constraintTop_toBottomOf="@+id/btn_fileAppCreator" />
+
+            <TextView
+                android:id="@+id/tv_creatorNameInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:textColor="#000000"
+                android:text="@string/tv_creatorNameInfo"
+                app:layout_constraintEnd_toStartOf="@+id/tv_creatorName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_creatorAffiliationInfo" />
+
+            <TextView
+                android:id="@+id/tv_creatorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:textColor="#000000"
+                android:text=""
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_creatorNameInfo"
+                app:layout_constraintTop_toBottomOf="@+id/tv_creatorAffiliation" />
+
+            <TextView
+                android:id="@+id/tv_creatorNumberInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:textColor="#000000"
+                android:text="@string/tv_creatorNumberInfo"
+                app:layout_constraintEnd_toStartOf="@+id/tv_creatorNumber"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_creatorNameInfo" />
+
+            <TextView
+                android:id="@+id/tv_creatorNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:textColor="#000000"
+                android:text=""
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_creatorNumberInfo"
+                app:layout_constraintTop_toBottomOf="@+id/tv_creatorName" />
+
+            <Button
+                android:id="@+id/btn_fileAppCreatorWrite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/et_border_soft_edge"
+                android:text="@string/btn_fileAppCreatorWrite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_creatorNumberInfo" />
+
+            <TextView
+                android:id="@+id/tv_creatorAffiliationInfo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:textColor="#000000"
+                android:text="@string/tv_creatorAffiliationInfo"
+                app:layout_constraintEnd_toStartOf="@+id/tv_creatorAffiliation2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_fileAppCreatorWrite" />
+
+            <EditText
+                android:id="@+id/tv_creatorAffiliation2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:hint="@string/tv_creatorAffiliation2"
+                android:text=""
+                android:textColor="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_creatorAffiliationInfo2"
+                app:layout_constraintTop_toBottomOf="@+id/btn_fileAppCreatorWrite" />
+
+            <TextView
+                android:id="@+id/tv_creatorNameInfo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:textColor="#000000"
+                android:text="@string/tv_creatorNameInfo"
+                app:layout_constraintEnd_toStartOf="@+id/tv_creatorName2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_creatorAffiliationInfo2" />
+
+            <EditText
+                android:id="@+id/tv_creatorName2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text=""
+                android:hint="@string/tv_creatorName2"
+                android:textColor="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_creatorNameInfo2"
+                app:layout_constraintTop_toBottomOf="@+id/tv_creatorAffiliation2" />
+
+            <TextView
+                android:id="@+id/tv_creatorNumberInfo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="@string/tv_creatorNumberInfo"
+                android:textColor="#000000"
+                app:layout_constraintEnd_toStartOf="@+id/tv_creatorNumber2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_creatorNameInfo2" />
+
+            <EditText
+                android:id="@+id/tv_creatorNumber2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text=""
+                android:textColor="#000000"
+                android:hint="@string/tv_creatorNumber2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_creatorNumberInfo2"
+                app:layout_constraintTop_toBottomOf="@+id/tv_creatorName2" />
+
+            <TextView
+                android:id="@+id/tv_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="250dp"
+                android:text=""
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_creatorNumberInfo2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
