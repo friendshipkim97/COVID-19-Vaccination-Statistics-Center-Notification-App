@@ -44,6 +44,7 @@
                 android:id="@+id/constraintLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/et_border_soft_edge"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -77,6 +78,7 @@
                 android:id="@+id/constraintLayout3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/et_border_soft_edge"
                 android:layout_marginTop="32dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -86,6 +88,7 @@
                     android:id="@+id/btn_fileAppCreator"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
                     android:background="@drawable/et_border_soft_edge"
                     android:text="@string/btn_fileAppCreator"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -162,6 +165,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/et_border_soft_edge"
                 android:layout_marginTop="32dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -173,6 +177,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/et_border_soft_edge"
                     android:text="@string/btn_fileAppCreatorWrite"
+                    android:layout_marginTop="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
