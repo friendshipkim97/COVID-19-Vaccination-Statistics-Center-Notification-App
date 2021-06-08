@@ -30,6 +30,7 @@ public class QnAWritePresenter implements QnAWriteContract.Presenter {
         QnA qnA = new QnA(userId, mBinding.etContent.getText().toString(), date, mBinding.tvQnaWriteTitle.getText().toString());
         this.mAppDatabase.qnADao().insert(qnA);
         qnAWriteView.showToast("작성을 완료했습니다.");
+
     }
 
 }

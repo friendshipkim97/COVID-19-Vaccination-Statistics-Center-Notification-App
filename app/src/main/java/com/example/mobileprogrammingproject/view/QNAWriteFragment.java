@@ -62,6 +62,7 @@ public class QNAWriteFragment extends Fragment implements QnAWriteContract.View 
             @Override
             public void onClick(View view) {
                 qnaPresenter.submit(strEmail, strEmailType);
+                goHomeFragment();
             }
         });
     }
@@ -99,6 +100,8 @@ public class QNAWriteFragment extends Fragment implements QnAWriteContract.View 
         myPageFragment.setArguments(setPersonalBundleInfo());
         ((MainActivity)getActivity()).replaceFragment(myPageFragment);
     }
+
+
 
     private Bundle setPersonalBundleInfo() {
         Bundle bundle = new Bundle();
