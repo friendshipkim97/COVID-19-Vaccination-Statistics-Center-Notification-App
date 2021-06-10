@@ -88,7 +88,7 @@ public class MyPageFragment extends Fragment {
         mBinding.btnChangePersonalInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ChangePersonalInformationFragment changePersonalInformationFragment = new ChangePersonalInformationFragment();
+                ChangePersonalInformationFragment changePersonalInformationFragment = ChangePersonalInformationFragment.newInstance();
                 changePersonalInformationFragment.setArguments(setPersonalBundleInfo());
                 replaceFragment(changePersonalInformationFragment);
             }

@@ -42,14 +42,14 @@
         android:id="@+id/et_loginEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:backgroundTint="#000000"
         android:ems="14"
         android:hint="@string/loginHintId"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_titleName" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <EditText
         android:id="@+id/et_loginPassword"
@@ -70,6 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:textColor="#000000"
         android:text="@string/loginTextSearchEmail"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/tv_searchPassword"
@@ -83,6 +84,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/loginTextSearchPw"
+        android:textColor="#000000"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/tv_signUp"
         app:layout_constraintStart_toEndOf="@+id/tv_searchEmail"
@@ -93,6 +95,7 @@
         android:layout_width="54dp"
         android:layout_height="15dp"
         android:layout_marginTop="32dp"
+        android:textColor="#000000"
         android:text="@string/loginTextSignUp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -103,10 +106,10 @@
         android:id="@+id/btn_appLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/et_border"
         android:ems="14"
         android:text="@string/loginTextLogin"
-        android:background="@drawable/et_border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_loginPassword" />
@@ -123,32 +126,47 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="90dp"
-        android:layout_marginLeft="90dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/covidicon"
-        app:layout_constraintEnd_toStartOf="@+id/tv_titleName"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_appInfo"></ImageView>
-
-    <TextView
-        android:id="@+id/tv_titleName"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginRight="70dp"
-        android:text="예방접종 알리미"
-        android:textColor="#000000"
-        android:textSize="24sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.797"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_appInfo" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_appInfo">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:gravity="center"
+            android:src="@drawable/covidicon"
+            app:layout_constraintEnd_toStartOf="@+id/tv_titleName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+        <TextView
+            android:id="@+id/tv_titleName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:gravity="center"
+            android:text="예방접종 통계, 센터 알리미"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

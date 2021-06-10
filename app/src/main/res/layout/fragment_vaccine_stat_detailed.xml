@@ -48,11 +48,11 @@
                 android:id="@+id/tv_baseDateInfoDetailed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="200dp"
-                android:layout_marginRight="200dp"
-                android:textColor="#000000"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="240dp"
+                android:layout_marginRight="240dp"
                 android:text="통계 기준일자"
+                android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_hospitalDetailedInfo" />
@@ -61,10 +61,12 @@
                 android:id="@+id/tv_baseDateDetailed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="110dp"
+                android:layout_marginLeft="110dp"
+                android:layout_marginTop="36dp"
                 android:textColor="#000000"
-                android:layout_marginTop="24dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_baseDateInfoDetailed"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_hospitalDetailedInfo" />
 
             <TextView
@@ -84,10 +86,10 @@
                 android:layout_width="49dp"
                 android:layout_height="15dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="200dp"
-                android:layout_marginRight="200dp"
-                android:textColor="#000000"
+                android:layout_marginEnd="260dp"
+                android:layout_marginRight="260dp"
                 android:text="지역명칭"
+                android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_baseDateInfoDetailed" />
@@ -96,10 +98,12 @@
                 android:id="@+id/tv_sidoDetailed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000000"
+                android:layout_marginStart="110dp"
+                android:layout_marginLeft="110dp"
                 android:layout_marginTop="24dp"
+                android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_sidoInfoDetailed"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_baseDateDetailed" />
 
             <TextView
@@ -107,10 +111,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:textColor="#000000"
-                android:layout_marginEnd="200dp"
-                android:layout_marginRight="200dp"
+                android:layout_marginEnd="207dp"
+                android:layout_marginRight="207dp"
                 android:text="당일 통계(1차 접종)"
+                android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_sidoInfoDetailed" />
@@ -119,10 +123,12 @@
                 android:id="@+id/tv_firstCntDetailed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000000"
+                android:layout_marginStart="110dp"
+                android:layout_marginLeft="110dp"
                 android:layout_marginTop="24dp"
+                android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_firstCntInfoDetailed"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_sidoDetailed" />
 
             <TextView
@@ -130,10 +136,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:textColor="#000000"
-                android:layout_marginEnd="200dp"
-                android:layout_marginRight="200dp"
+                android:layout_marginEnd="207dp"
+                android:layout_marginRight="207dp"
                 android:text="당일 통계(2차 접종)"
+                android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_firstCntInfoDetailed" />
@@ -142,10 +148,12 @@
                 android:id="@+id/tv_secondCntDetailed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000000"
+                android:layout_marginStart="110dp"
+                android:layout_marginLeft="110dp"
                 android:layout_marginTop="24dp"
+                android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_secondCntnfoDetailed"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_firstCntDetailed" />
 
             <TextView
@@ -153,10 +161,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="200dp"
-                android:layout_marginRight="200dp"
-                android:textColor="#000000"
+                android:layout_marginEnd="185dp"
+                android:layout_marginRight="185dp"
                 android:text="전체 누적 통계(1차 접종)"
+                android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_secondCntnfoDetailed" />
@@ -165,21 +173,23 @@
                 android:id="@+id/tv_totalFirstCntDetailed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000000"
+                android:layout_marginStart="110dp"
+                android:layout_marginLeft="110dp"
                 android:layout_marginTop="24dp"
+                android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_totalFirstCntInfoDetailed"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_secondCntDetailed" />
 
             <TextView
                 android:id="@+id/tv_totalSecondCntInfoDetailed"
                 android:layout_width="wrap_content"
-                android:textColor="#000000"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="200dp"
-                android:layout_marginRight="200dp"
+                android:layout_marginEnd="180dp"
+                android:layout_marginRight="180dp"
                 android:text="전일 누적 통계(2차 접종)"
+                android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_totalFirstCntInfoDetailed" />
@@ -187,11 +197,13 @@
             <TextView
                 android:id="@+id/tv_totalSecondCntDetailed"
                 android:layout_width="wrap_content"
-                android:textColor="#000000"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="110dp"
+                android:layout_marginLeft="110dp"
                 android:layout_marginTop="24dp"
+                android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_totalSecondCntInfoDetailed"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_totalFirstCntDetailed" />
 
             <TextView
@@ -199,10 +211,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:textColor="#000000"
-                android:layout_marginEnd="200dp"
-                android:layout_marginRight="200dp"
+                android:layout_marginEnd="150dp"
+                android:layout_marginRight="150dp"
                 android:text="전일까지의 누적 통계(1차 접종)"
+                android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_totalSecondCntInfoDetailed" />
@@ -211,10 +223,12 @@
                 android:id="@+id/tv_accumulatedFirstCntDetailed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000000"
+                android:layout_marginStart="110dp"
+                android:layout_marginLeft="110dp"
                 android:layout_marginTop="24dp"
+                android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_accumulatedFirstCntInfoDetailed"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_totalSecondCntDetailed" />
 
             <TextView
@@ -222,10 +236,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:textColor="#000000"
-                android:layout_marginEnd="200dp"
-                android:layout_marginRight="200dp"
+                android:layout_marginEnd="150dp"
+                android:layout_marginRight="150dp"
                 android:text="전일까지의 누적 통계(2차 접종)"
+                android:textColor="#000000"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -234,12 +248,14 @@
             <TextView
                 android:id="@+id/tv_accumulatedSecondCntDetailed"
                 android:layout_width="wrap_content"
-                android:textColor="#000000"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="110dp"
+                android:layout_marginLeft="110dp"
                 android:layout_marginTop="24dp"
+                android:textColor="#000000"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_accumulatedSecondCntInfoDetailed"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_accumulatedFirstCntDetailed" />
 
 

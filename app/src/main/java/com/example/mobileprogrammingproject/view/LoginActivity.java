@@ -167,6 +167,8 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
                 Boolean loginSuccess = loginPresenter.validLoginCheck(mBinding.etLoginEmail.getText().toString(), mBinding.etLoginPassword.getText().toString());
                 if(loginSuccess == true){
                     Intent intent = loginPresenter.appOnSuccess(mBinding.etLoginEmail.getText().toString(), mBinding.etLoginPassword.getText().toString());
+                    mBinding.etLoginEmail.setText("");
+                    mBinding.etLoginPassword.setText("");
                     startActivity(intent);
                 }
             }

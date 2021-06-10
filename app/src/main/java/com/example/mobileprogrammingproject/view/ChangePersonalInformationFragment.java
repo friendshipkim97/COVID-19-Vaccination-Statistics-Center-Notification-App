@@ -61,6 +61,8 @@ public class ChangePersonalInformationFragment extends Fragment implements Chang
         presenter = new ChangePersonalPresenter(this, mBinding, mAppDatabase, context);
 
         Bundle bundle = getArguments();
+        strNick = bundle.getString("strNick");
+        strProfileImg = bundle.getString("strProfileImg");
         strEmail = bundle.getString("strEmail");
         strEmailType = bundle.getString("strEmailType");
 
@@ -135,5 +137,9 @@ public class ChangePersonalInformationFragment extends Fragment implements Chang
         FragmentManager fragmentManager = fragmentContext.getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame_frag, fragment).commit();
+    }
+
+    public static ChangePersonalInformationFragment newInstance() {
+        return new ChangePersonalInformationFragment();
     }
 }

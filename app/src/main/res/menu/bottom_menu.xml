@@ -9,12 +9,12 @@
         android:id="@+id/action_search"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_fmd_good_24"
-        android:title="검색"/>
+        android:title="센터"/>
     <item
         android:id="@+id/action_home"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_home_24"
-        android:title="홈"/>
+        android:title="통계"/>
     <item
         android:id="@+id/action_myPage"
         android:enabled="true"

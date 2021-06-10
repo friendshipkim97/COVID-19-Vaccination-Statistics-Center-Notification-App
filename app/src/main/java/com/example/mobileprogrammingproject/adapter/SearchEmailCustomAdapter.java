@@ -2,11 +2,13 @@ package com.example.mobileprogrammingproject.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -99,7 +101,7 @@ public class SearchEmailCustomAdapter extends RecyclerView.Adapter<SearchEmailCu
             List<User> userList = mAppDatabase.userDao().findEmailByNameAndPhone(holder.et_recycle1.getText().toString(),
                     holder.et_recycle2.getText().toString(), ESearchEmailCustomAdapter.emailAppType.getText());
 
-            if(userList==null){
+            if(userList.size()==0){
                 searchEmailView.showToast(ESearchEmailCustomAdapter.noMatchingEmail.getText());
                 return false;
             } else {
@@ -111,29 +113,16 @@ public class SearchEmailCustomAdapter extends RecyclerView.Adapter<SearchEmailCu
                 return true;
             }
         }
+
     }
 
     public boolean searchEmailCheckNAB(CustomViewHolder holder) {
-
-//        if (validNameCheck(holder) == false) {
-//            return false;
-//        } else {
-//            String email = mAppDatabase.userDao().findEmailByNameAndBirth(holder.et_recycle1.getText().toString(),
-//                    holder.et_recycle2.getText().toString(), ESearchEmailCustomAdapter.emailAppType.getText());
-//            if(email==null){
-//                searchEmailView.showToast(ESearchEmailCustomAdapter.noMatchingEmail.getText());
-//                return false;
-//            } else {
-//                searchEmailView.showToast(ESearchEmailCustomAdapter.notificationMessage1.getText() + email + ESearchEmailCustomAdapter.notificationMessage2.getText());
-//                return true;
-//            }
-//        }
         if (validNameCheck(holder) == false) {
             return false;
         } else {
             List<User> userList = mAppDatabase.userDao().findEmailByNameAndBirth(holder.et_recycle1.getText().toString(),
                     holder.et_recycle2.getText().toString(), ESearchEmailCustomAdapter.emailAppType.getText());
-            if(userList==null){
+            if(userList.size()==0l){
                 searchEmailView.showToast(ESearchEmailCustomAdapter.noMatchingEmail.getText());
                 return false;
             } else {
