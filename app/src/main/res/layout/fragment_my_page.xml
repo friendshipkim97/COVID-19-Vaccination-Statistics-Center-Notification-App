@@ -35,13 +35,13 @@
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
                 <TextView
-                    android:id="@+id/tv_settingInfo"
+                    android:id="@+id/tv_logoutInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="270dp"
                     android:layout_marginRight="270dp"
-                    android:text="Logout"
+                    android:text="@string/tv_logoutInfo"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -59,11 +59,11 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/et_border_soft_edge"
-                    android:text="로그아웃"
+                    android:text="@string/btn_logout"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_settingInfo" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_logoutInfo" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout

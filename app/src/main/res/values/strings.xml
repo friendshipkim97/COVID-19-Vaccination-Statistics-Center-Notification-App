@@ -125,6 +125,11 @@
     <string name="tv_creatorName2">제작자 이름을 작성해 주세요.</string>
     <string name="tv_creatorNumber2">제작자 학번을 작성해 주세요.</string>
 
+    <!--    fragment_my_page.xml-->
+    <string name="btn_logout">로그아웃</string>
+    <string name="tv_logoutInfo">Logout</string>
+    <string name="btn_changePersonalInfo">개인정보변경</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
