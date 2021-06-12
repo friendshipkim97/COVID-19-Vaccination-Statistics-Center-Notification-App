@@ -117,6 +117,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="80dp"
                 android:layout_marginBottom="32dp"
+                android:textColor="#000000"
                 android:text="@string/signUpTextInfo"
                 android:textSize="18sp"
                 android:textStyle="bold"
