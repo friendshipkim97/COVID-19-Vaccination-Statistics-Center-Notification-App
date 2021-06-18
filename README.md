@@ -9,7 +9,7 @@
 ### 시작화면
 <p align="center"><img src="https://user-images.githubusercontent.com/61726631/122517102-96238680-d04a-11eb-85e3-acdd0c7add72.png" width="300px" height="600px"></p>
 
-* App실행 시 화면입니다.
+* App실행 시 3초간 나오는 화면입니다.
 
 ### 로그인화면
 <p align="center"><img src="https://user-images.githubusercontent.com/61726631/122519153-1945dc00-d04d-11eb-9825-dc5141f84d46.png" width="300px" height="600px"></p>
@@ -117,6 +117,11 @@
 </p>
 
 * 네트워크가 온전한 지의 여부, App의 제작자 확인, 변경이 가능한 화면입니다.
+
+### 파이어 베이스 메세지 화면  
+<p align="center"><img src="https://user-images.githubusercontent.com/61726631/122528646-852d4200-d057-11eb-9332-048969d62c03.png" width="300px" height="600px"></p>
+
+* 파이어베이스 메세지 화면입니다.
 
 ---
 
