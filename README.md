@@ -29,7 +29,7 @@
 ### 비밀번호 찾기 화면
 <p align="center"><img src="https://user-images.githubusercontent.com/61726631/122519984-0ed81200-d04e-11eb-95b3-234f4c5edbf8.png" width="300px" height="600px"></p>
 
-* App에 등록된(카카오, 구글x)이메일을 찾는 기능입니다.
+* App에 등록된(카카오, 구글x)비밀번호를 찾는 기능입니다.
 * 등록된 이메일에 비밀번호를 전송합니다.
 
 ### 회원가입 화면
