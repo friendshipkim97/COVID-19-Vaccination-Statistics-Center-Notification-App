@@ -1,10 +1,20 @@
 # COVID19-Vaccination-Statistics&Center-Notification-App
 
+## 개요
+- 안드로이드 스튜디오를 이용한 COVID-19 예방접종 통계 & 센터조회 서비스 App입니다.
+- 매일마다 변하는 예방접종 통계의 변화추세를 지역별로 확인할 수 있고, 주변의 예방접종 센터를 확인 후 신청할 수 있습니다.
+
+---
+## 주요기능
+#### 시작화면
+<p align="center"><img src="https://user-images.githubusercontent.com/61726631/122517102-96238680-d04a-11eb-85e3-acdd0c7add72.png" width="300px" height="600px"></p>
+
+* App실행 시 화면입니다.
+
+
 ---
 
-
-
----
+## 개발환경
 
 분류 | 항목 
 ----- | ----- 
