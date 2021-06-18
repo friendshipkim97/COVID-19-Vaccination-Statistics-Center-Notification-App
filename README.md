@@ -88,7 +88,7 @@
 * 코로나 예방접종에 관한 정보를 확인할 수 있습니다.
 
 ### 마이페이지 화면  
-<p align="center"><img src="https://user-images.githubusercontent.com/61726631/122519761-c9b3e000-d04d-11eb-96e3-ea2d1e6fa019.png" width="300px" height="600px"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/61726631/122536478-882c3080-d05f-11eb-818f-757fcef01f9b.png" width="300px" height="600px"></p>
 
 * 마이페이지 입니다.
 * 간단한 개인정보 확인, 변경, QnA 작성, QnA 체크, 로그아웃이 가능합니다.
