@@ -94,7 +94,10 @@
 * 간단한 개인정보 확인, 변경, QnA 작성, QnA 체크, 로그아웃이 가능합니다.
 
 ### 개인정보 변경 화면  
-<p align="center"><img src="https://user-images.githubusercontent.com/61726631/122519847-e0f2cd80-d04d-11eb-9fe1-b10adcc81873.png" width="300px" height="600px"></p>
+<p align="center">
+   <span><img src="https://user-images.githubusercontent.com/61726631/122537029-1ef8ed00-d060-11eb-8efb-9b168256df56.png" width="300px" height="600px"></span>
+  <span><img src="https://user-images.githubusercontent.com/61726631/122519847-e0f2cd80-d04d-11eb-9fe1-b10adcc81873.png" width="300px" height="600px"></span>
+</p>
 
 * 개인정보 변경 화면입니다.
 * 바꾸고 싶은 개인정보를 입력해 새로운 개인정보로 변경할 수 있습니다.
