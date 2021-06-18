@@ -82,9 +82,41 @@
 * 간단한 개인 정보 확인과 코로나 예방접종에 관한 정보를 제공하는 화면입니다.
 
 ### 메뉴 리스트 선택 화면  
-<p align="center"><img src="https://user-images.githubusercontent.com/61726631/122519253-37134100-d04d-11eb-939b-ef284bcd23fa.png" width="300px" height="600px"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/61726631/122519795-d20c1b00-d04d-11eb-857f-c3ac549f55d9.png" width="300px" height="600px"></p>
 
 * 메뉴에서 클릭 한 정보를 제공하는 화면입니다.
+* 코로나 예방접종에 관한 정보를 확인할 수 있습니다.
+
+### 마이페이지 화면  
+<p align="center"><img src="https://user-images.githubusercontent.com/61726631/122519761-c9b3e000-d04d-11eb-96e3-ea2d1e6fa019.png" width="300px" height="600px"></p>
+
+* 마이페이지 입니다.
+* 간단한 개인정보 확인, 변경, QnA 작성, QnA 체크, 로그아웃이 가능합니다.
+
+### 개인정보 변경 화면  
+<p align="center"><img src="https://user-images.githubusercontent.com/61726631/122519847-e0f2cd80-d04d-11eb-9fe1-b10adcc81873.png" width="300px" height="600px"></p>
+
+* 개인정보 변경 화면입니다.
+* 바꾸고 싶은 개인정보를 입력해 새로운 개인정보로 변경할 수 있습니다.
+
+### QnA 작성 화면  
+<p align="center"><img src="https://user-images.githubusercontent.com/61726631/122519619-9e30f580-d04d-11eb-8230-a6ea1c3902c2.png" width="300px" height="600px"></p>
+
+* QnA 작성 화면입니다.
+* 작성하고 싶은 QnA를 작성할 수 있습니다.
+
+### 작성한 QnA 확인 화면  
+<p align="center"><img src="https://user-images.githubusercontent.com/61726631/122519572-92453380-d04d-11eb-82c5-90f7589ddd43.png" width="300px" height="600px"></p>
+
+* 작성한 QnA를 확인할 수 있는 화면입니다.
+
+### 설정 화면
+<p align="center">
+  <span><img src="https://user-images.githubusercontent.com/61726631/122519875-ebad6280-d04d-11eb-9644-3c6df8a26194.png" width="300px" height="600px"></span>
+   <span><img src="https://user-images.githubusercontent.com/61726631/122519911-f831bb00-d04d-11eb-9033-916cf3cfdffb.png" width="300px" height="600px"></span>
+</p>
+
+* 네트워크가 온전한 지의 여부, App의 제작자 확인, 변경이 가능한 화면입니다.
 
 ---
 
