@@ -1,4 +1,4 @@
-# COVID19-Vaccination-Statistics-Center-Notification-App
+# COVID-19-Vaccination-Statistics-Center-Notification-App
 
 ## 개요
 - 안드로이드 스튜디오를 이용한 COVID-19 예방접종 통계 & 센터조회 서비스 App입니다.
